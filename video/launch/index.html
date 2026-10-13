@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Korrin launch film</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Manrope";
+        src: url("assets/fonts/manrope-latin.woff2") format("woff2");
+        font-weight: 200 800;
+        font-style: normal;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #fff; }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #fff;
+        color: #0b0c0e;
+        font-family: "Manrope", sans-serif;
+        letter-spacing: -0.03em;
+      }
+      .mono { font-family: "JetBrains Mono", monospace; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+      .scene { position: absolute; inset: 0; overflow: hidden; }
+      #s3, #s4, #s5, #s6 { z-index: 5; }
+      .laptop { z-index: 3; }
+      .center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      .word { display: inline-block; opacity: 0; }
+
+      /* S1 white open */
+      #s1 { background: #fff; }
+      .tick-bar { position: absolute; left: 50%; top: 50%; width: 14px; height: 230px; margin: -115px 0 0 -7px; background: #0b0c0e; border-radius: 7px; }
+      .h-hero { font-size: 120px; line-height: 1.04; font-weight: 400; letter-spacing: -0.05em; }
+      .h-hero b { font-weight: 400; font-style: italic; padding-right: 0.12em; }
+
+      /* S2 dark logo reveal */
+      #s2 { background: #0b0c0e; color: #f2f2f2; }
+      .grid { position: absolute; inset: 0; background-image:
+        linear-gradient(rgba(255,255,255,0.045) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 2px, transparent 2px);
+        background-size: 120px 120px; }
+      .cell { position: absolute; width: 120px; height: 120px; background: rgba(255,255,255,0.06); opacity: 0; }
+      .logo-row { display: flex; align-items: center; gap: 30px; }
+      .logo-word { font-size: 132px; font-weight: 500; letter-spacing: -0.05em; }
+      .sub-dark { font-size: 56px; line-height: 1.18; font-weight: 400; color: #e6e6e7; letter-spacing: -0.04em; }
+
+      /* hills scenes */
+      .sky { position: absolute; inset: 0; background: linear-gradient(180deg, #cfeaff 0%, #eaf6ff 46%, #fbfdff 70%); }
+      .cloud { position: absolute; width: 520px; height: 140px; border-radius: 80px; background: rgba(255,255,255,0.92); filter: blur(14px); }
+      .hills { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; }
+      .headline { position: absolute; left: 0; right: 0; top: 74px; text-align: center; font-size: 84px; line-height: 1.06; font-weight: 500; letter-spacing: -0.05em; color: #0b1220; }
+      .headline em { font-style: italic; font-weight: 400; padding: 0 0.12em 0 0.04em; }
+
+      /* laptop mockup */
+      .laptop { position: absolute; width: 1180px; }
+      .lid { position: relative; width: 100%; padding: 16px 16px 20px; border-radius: 30px 30px 10px 10px; background: #0f1012; box-shadow: 0 60px 120px rgba(8, 30, 40, 0.38), 0 0 0 2px #2a2c30 inset; }
+      .lid::before { content: ""; position: absolute; top: 7px; left: 50%; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: #25272b; }
+      .screen { position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: #f4f5f7; }
+      .screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .base { width: 112%; margin-left: -6%; height: 24px; border-radius: 0 0 26px 26px; background: linear-gradient(180deg, #c9ccd1, #9da1a8); box-shadow: 0 30px 50px rgba(8,30,40,0.3); }
+      .base::before { content: ""; display: block; width: 18%; height: 8px; margin: 0 auto; border-radius: 0 0 12px 12px; background: #8c9097; }
+
+      .chip { position: absolute; display: flex; align-items: center; gap: 16px; padding: 18px 30px; border-radius: 999px; background: #0b0c0e; color: #fff; font-size: 34px; font-weight: 500; letter-spacing: -0.03em; box-shadow: 0 20px 50px rgba(8, 20, 30, 0.28); opacity: 0; }
+      .chip i { width: 18px; height: 18px; border-radius: 50%; background: #4fb08f; display: block; }
+      .chip.blue i { background: #6b9cf0; }
+      .chip .mono { font-size: 28px; color: #bfc3c8; font-weight: 400; }
+
+      /* S6 verbs */
+      .verbs { position: absolute; left: 0; right: 0; top: 360px; text-align: center; height: 220px; }
+      .verb { position: absolute; left: 0; right: 0; font-size: 190px; font-weight: 500; letter-spacing: -0.06em; color: #0b1220; opacity: 0; }
+      .verb-line { position: absolute; left: 50%; top: 640px; width: 320px; height: 8px; margin-left: -160px; border-radius: 4px; background: #0b1220; }
+      .tagline { position: absolute; left: 0; right: 0; top: 760px; text-align: center; font-size: 46px; color: #223049; font-weight: 400; opacity: 0; }
+
+      /* S7 close */
+      #s7 { background: #0b0c0e; color: #f2f2f2; }
+      .card { position: absolute; left: 50%; top: 50%; width: 1240px; margin: -360px 0 0 -620px; padding: 56px 64px; border-radius: 30px; background: #131416; border: 2px solid rgba(255,255,255,0.09); }
+      .card h3 { font-size: 64px; font-weight: 500; letter-spacing: -0.045em; }
+      .card .rule { margin: 30px 0; height: 2px; background: rgba(255,255,255,0.09); }
+      .stat { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; font-size: 36px; color: #cececf; }
+      .stat .mono { color: #f2f2f2; font-size: 34px; }
+      .stat .ok { color: #4fb08f; }
+      .url { margin-top: 36px; font-size: 52px; color: #f2f2f2; }
+      .disc { position: absolute; left: 0; right: 0; bottom: 56px; text-align: center; font-size: 24px; color: #8a8b8d; letter-spacing: -0.01em; }
+
+      /* transitions */
+      .wipe { position: absolute; top: -200px; height: 1480px; width: 2300px; left: -2500px; transform: skewX(-24deg); z-index: 50; }
+      #wipeA { background: #0b0c0e; }
+      #wipeB { background: #4fb08f; width: 260px; }
+      #wipeC { background: #fff; width: 200px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="57" data-width="1920" data-height="1080">
+
+      <!-- S1: white open -->
+      <section id="s1" class="clip scene" data-start="0" data-duration="4.4" data-track-index="1">
+        <div class="tick-bar" id="s1-bar"></div>
+        <div class="center" id="s1-text" style="opacity: 0">
+          <h1 class="h-hero">
+            <span class="word" id="s1-w1">A new stablecoin.</span><br>
+            <span class="word" id="s1-w2"><b>An empty</b></span> <span class="word" id="s1-w3">book.</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- S2: logo reveal -->
+      <section id="s2" class="clip scene" data-start="4.4" data-duration="4.4" data-track-index="1">
+        <div class="grid"></div>
+        <div id="cells"></div>
+        <div class="center">
+          <div class="logo-row" id="s2-logo" style="opacity: 0">
+            <svg width="150" height="150" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="0.75" y="0.75" width="22.5" height="22.5" rx="6.5" fill="#f2f2f2" />
+              <line x1="7" y1="5.5" x2="7" y2="18.5" stroke="#0b0c0e" stroke-opacity="0.38" stroke-width="1.2" />
+              <line x1="17" y1="5.5" x2="17" y2="18.5" stroke="#0b0c0e" stroke-opacity="0.38" stroke-width="1.2" />
+              <rect x="9.4" y="10" width="2.2" height="8.5" rx="0.8" fill="#0b0c0e" />
+              <rect x="12.4" y="7" width="2.2" height="11.5" rx="0.8" fill="#0b0c0e" fill-opacity="0.62" />
+            </svg>
+            <span class="logo-word">Korrin</span>
+          </div>
+          <p class="sub-dark" id="s2-sub" style="opacity: 0; margin-top: 48px">Put your stablecoin liquidity<br>on the book.</p>
+        </div>
+      </section>
+
+      <!-- Shared hills backdrop for S3 to S6 -->
+      <section id="hills" class="clip scene" data-start="8.8" data-duration="39.2" data-track-index="0">
+        <div class="sky"></div>
+        <div class="cloud" id="c1" style="left: 120px; top: 150px"></div>
+        <div class="cloud" id="c2" style="left: 1200px; top: 90px; width: 640px"></div>
+        <div class="cloud" id="c3" style="left: 700px; top: 300px; width: 380px; opacity: 0.8"></div>
+        <svg class="hills" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="h1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad6c0"/><stop offset="1" stop-color="#5fb89a"/></linearGradient>
+            <linearGradient id="h2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6cc2a2"/><stop offset="1" stop-color="#3e9d7e"/></linearGradient>
+            <linearGradient id="h3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f9f80"/><stop offset="1" stop-color="#1f6f55"/></linearGradient>
+          </defs>
+          <g id="hill-far"><path d="M-200 700 C 200 560 500 600 820 680 S 1400 560 2120 650 L 2120 1080 L -200 1080 Z" fill="url(#h1)" opacity="0.8"/></g>
+          <g id="hill-mid"><path d="M-200 790 C 250 650 640 700 1000 790 S 1560 690 2120 760 L 2120 1080 L -200 1080 Z" fill="url(#h2)"/></g>
+          <g id="hill-near"><path d="M-200 900 C 260 790 760 840 1100 910 S 1620 840 2120 890 L 2120 1080 L -200 1080 Z" fill="url(#h3)"/></g>
+        </svg>
+      </section>
+
+      <!-- S3: replay -->
+      <section id="s3" class="clip scene" data-start="8.8" data-duration="10.6" data-track-index="1" style="background: transparent">
+        <h2 class="headline" id="s3-h"><span class="word" id="s3-w1">See the book</span> <span class="word" id="s3-w2"><em>behind</em> the balance.</span></h2>
+        <div class="chip" id="s3-chip" style="left: 220px; top: 780px"><i></i>Order 18439345<span class="mono">filled · flipped · same ID</span></div>
+      </section>
+
+      <div class="laptop" id="s3-lap" style="left: 370px; top: 250px; opacity: 0">
+          <div class="lid"><div class="screen"><video id="v3" class="clip" muted playsinline src="assets/footage.mp4" data-start="8.8" data-duration="10.6" data-media-start="12" data-track-index="2"></video></div></div><div class="base"></div>
+        </div>
+
+      <!-- S4: build the plan -->
+      <section id="s4" class="clip scene" data-start="19.4" data-duration="10" data-track-index="1" style="background: transparent">
+        <h2 class="headline" id="s4-h1" style="opacity: 0"><span>Set the plan.</span></h2>
+        <h2 class="headline" id="s4-h2" style="opacity: 0">Korrin proposes <em>one</em> bounded order.</h2>
+        <div class="chip blue" id="s4-chip" style="right: 150px; top: 760px"><i></i>Target · range · reserve · limits</div>
+      </section>
+
+      <div class="laptop" id="s4-lap" style="left: 370px; top: 250px; opacity: 0">
+          <div class="lid"><div class="screen"><video id="v4" class="clip" muted playsinline src="assets/footage.mp4" data-start="19.4" data-duration="10" data-media-start="47" data-track-index="2"></video></div></div><div class="base"></div>
+        </div>
+
+      <!-- S5: sign + verify -->
+      <section id="s5" class="clip scene" data-start="29.4" data-duration="12" data-track-index="1" style="background: transparent">
+        <h2 class="headline" id="s5-h"><span class="word" id="s5-w1">You sign.</span> <span class="word" id="s5-w2"><em>Then</em> we check the chain.</span></h2>
+        <div class="chip" id="s5-c1" style="left: 80px; top: 360px"><i></i>Signing</div>
+        <div class="chip" id="s5-c2" style="left: 80px; top: 470px"><i></i>Submitted</div>
+        <div class="chip" id="s5-c3" style="left: 80px; top: 580px"><i></i>Included</div>
+        <div class="chip" id="s5-c4" style="left: 80px; top: 690px"><i></i>Verified<span class="mono">getOrder</span></div>
+      </section>
+
+      <div class="laptop" id="s5-lap" style="left: 370px; top: 250px; opacity: 0">
+          <div class="lid"><div class="screen"><video id="v5" class="clip" muted playsinline src="assets/footage.mp4" data-start="29.4" data-duration="12" data-media-start="87.5" data-track-index="2"></video></div></div><div class="base"></div>
+        </div>
+
+      <!-- S6: verbs -->
+      <section id="s6" class="clip scene" data-start="41.4" data-duration="6.6" data-track-index="1" style="background: transparent">
+        <div class="verbs">
+          <div class="verb" id="vb1">Places.</div>
+          <div class="verb" id="vb2">Verifies.</div>
+          <div class="verb" id="vb3">Cancels.</div>
+          <div class="verb" id="vb4">Withdraws.</div>
+        </div>
+        <div class="verb-line" id="vline"></div>
+        <p class="tagline" id="s6-tag">Every action signed by you. Every result read back from Tempo.</p>
+      </section>
+
+      <!-- S7: close -->
+      <section id="s7" class="clip scene" data-start="48" data-duration="9" data-track-index="1">
+        <div class="grid"></div>
+        <div class="card" id="s7-card" style="opacity: 0">
+          <div style="display:flex; align-items:center; gap:24px">
+            <svg width="76" height="76" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="0.75" y="0.75" width="22.5" height="22.5" rx="6.5" fill="#f2f2f2" />
+              <line x1="7" y1="5.5" x2="7" y2="18.5" stroke="#0b0c0e" stroke-opacity="0.38" stroke-width="1.2" />
+              <line x1="17" y1="5.5" x2="17" y2="18.5" stroke="#0b0c0e" stroke-opacity="0.38" stroke-width="1.2" />
+              <rect x="9.4" y="10" width="2.2" height="8.5" rx="0.8" fill="#0b0c0e" />
+              <rect x="12.4" y="7" width="2.2" height="11.5" rx="0.8" fill="#0b0c0e" fill-opacity="0.62" />
+            </svg>
+            <div><h3>Korrin</h3><div style="font-size:30px; color:#8a8b8d; margin-top:4px">Stablecoin market plans on Tempo</div></div>
+          </div>
+          <div class="rule"></div>
+          <div class="stat" id="st1"><span>Order flipped, same ID</span><span class="mono">18439345 · 2 flips</span></div>
+          <div class="stat" id="st2"><span>Placement confirmed by readback</span><span class="mono ok">getOrder ✓</span></div>
+          <div class="stat" id="st3"><span>Cancel confirmed by readback</span><span class="mono ok">OrderDoesNotExist ✓</span></div>
+          <div class="stat" id="st4"><span>Keys held by Korrin</span><span class="mono">0</span></div>
+          <div class="url mono" id="s7-url">korrin-steel.vercel.app</div>
+        </div>
+        <p class="disc" id="s7-disc" style="opacity: 0">Tempo Moderato testnet only. Not audited. Fills in the recorded session came from a second testnet account Korrin controls.</p>
+      </section>
+
+      <!-- transitions -->
+      <div class="wipe" id="wipeA"></div>
+      <div class="wipe" id="wipeB"></div>
+      <div class="wipe" id="wipeC"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const F = 1 / 30;
+
+      function pop(ids, t0, gap = 0.12, y = 70) {
+        ids.forEach((id, i) => {
+          tl.set(id, { opacity: 1, y }, t0 + i * gap);
+          tl.to(id, { y: 0, duration: 0.32, ease: "power4.out" }, t0 + i * gap);
+        });
+      }
+
+      // cells for the grid reveal
+      const cellsHost = document.getElementById("cells");
+      const cellPos = [[3,2],[5,5],[8,1],[11,6],[13,3],[1,6],[6,7],[10,0],[14,7],[2,0],[12,8]];
+      cellPos.forEach(([c, r], i) => {
+        const d = document.createElement("div");
+        d.className = "cell";
+        d.id = "cell" + i;
+        d.style.left = c * 120 + "px";
+        d.style.top = r * 120 + "px";
+        cellsHost.appendChild(d);
+      });
+
+      // wipe: black parallelogram + green + white trail sweeping left to right
+      function wipe(tCenter) {
+        const dur = 0.85;
+        const t = tCenter - dur / 2;
+        tl.fromTo("#wipeA", { x: 0 }, { x: 5000, duration: dur, ease: "power2.inOut" }, t);
+        tl.fromTo("#wipeB", { x: 0 }, { x: 5000 + 2040, duration: dur, ease: "power2.inOut" }, t + 0.08);
+        tl.fromTo("#wipeC", { x: 0 }, { x: 5000 + 2240, duration: dur, ease: "power2.inOut" }, t + 0.14);
+      }
+      wipe(4.4);
+      wipe(8.8);
+      wipe(19.4);
+      wipe(29.4);
+      wipe(41.4);
+      wipe(48.0);
+
+      // S1
+      tl.fromTo("#s1-bar", { scaleY: 0 }, { scaleY: 1, duration: 0.45, ease: "power3.out" }, 0.1);
+      tl.to("#s1-bar", { opacity: 0, duration: 0.12 }, 0.9);
+      tl.set("#s1-text", { opacity: 1 }, 0.9);
+      pop(["#s1-w1"], 0.95, 0.2, 80);
+      pop(["#s1-w2", "#s1-w3"], 1.9, 0.18, 80);
+
+      // S2
+      cellPos.forEach((_, i) => tl.fromTo("#cell" + i, { opacity: 0 }, { opacity: 1, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 5.2 + i * 0.22));
+      tl.fromTo("#s2-logo", { opacity: 0, scale: 0.8, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: "back.out(1.7)" }, 5.1);
+      tl.fromTo("#s2-sub", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 6.3);
+
+      // hills ambience
+      tl.fromTo("#hill-far", { x: 0 }, { x: -60, duration: 39, ease: "none" }, 8.8);
+      tl.fromTo("#hill-mid", { x: 0 }, { x: -110, duration: 39, ease: "none" }, 8.8);
+      tl.fromTo("#hill-near", { x: 0 }, { x: -180, duration: 39, ease: "none" }, 8.8);
+      tl.fromTo("#c1", { x: 0 }, { x: 260, duration: 39, ease: "none" }, 8.8);
+      tl.fromTo("#c2", { x: 0 }, { x: -220, duration: 39, ease: "none" }, 8.8);
+      tl.fromTo("#c3", { x: 0 }, { x: 160, duration: 39, ease: "none" }, 8.8);
+
+      // laptop + video fade/slide helper
+      function laptop(lapId, vidId, t0, t1) {
+        tl.fromTo(lapId, { opacity: 0, y: 70, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, t0);
+        tl.to(lapId, { scale: 1.06, duration: t1 - t0 - 0.8, ease: "sine.inOut" }, t0 + 0.7);
+      }
+
+      tl.to("#s3-lap", { opacity: 0, duration: 0.2 }, 19.2);
+      tl.to("#s4-lap", { opacity: 0, duration: 0.2 }, 29.2);
+      tl.to("#s5-lap", { opacity: 0, duration: 0.2 }, 41.2);
+
+      // S3
+      pop(["#s3-w1", "#s3-w2"], 9.4, 0.18, 60);
+      laptop("#s3-lap", "#v3", 9.6, 19.0);
+      tl.fromTo("#s3-chip", { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 14.8);
+
+      // S4
+      tl.fromTo("#s4-h1", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power4.out" }, 20.0);
+      tl.to("#s4-h1", { opacity: 0, y: -30, duration: 0.25 }, 23.8);
+      tl.fromTo("#s4-h2", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power4.out" }, 24.1);
+      laptop("#s4-lap", "#v4", 20.2, 29.0);
+      tl.fromTo("#s4-chip", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, 22.0);
+
+      // S5
+      pop(["#s5-w1", "#s5-w2"], 30.0, 0.2, 60);
+      laptop("#s5-lap", "#v5", 30.2, 41.0);
+      ["#s5-c1", "#s5-c2", "#s5-c3", "#s5-c4"].forEach((id, i) => tl.fromTo(id, { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 32.0 + i * 1.5));
+
+      // S6
+      const vbs = ["#vb1", "#vb2", "#vb3", "#vb4"];
+      vbs.forEach((id, i) => {
+        const t = 41.9 + i * 1.1;
+        tl.fromTo(id, { opacity: 0, y: 90, filter: "blur(18px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, t);
+        if (i < vbs.length - 1) tl.to(id, { opacity: 0, y: -60, filter: "blur(18px)", duration: 0.3, ease: "power2.in" }, t + 0.8);
+      });
+      tl.fromTo("#vline", { scaleX: 0 }, { scaleX: 1, duration: 3.6, ease: "none" }, 41.9);
+      tl.fromTo("#s6-tag", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 45.4);
+
+      // S7
+      tl.fromTo("#s7-card", { opacity: 0, y: 50, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 48.6);
+      ["#st1", "#st2", "#st3", "#st4"].forEach((id, i) => tl.fromTo(id, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }, 49.6 + i * 0.5));
+      tl.fromTo("#s7-url", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 }, 52.0);
+      tl.fromTo("#s7-disc", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 53.0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

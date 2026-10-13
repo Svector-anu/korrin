@@ -1,0 +1,1737 @@
+{
+  "capturedAt": "2026-10-12T02:00:19.917Z",
+  "network": {
+    "chainId": 42431,
+    "name": "Tempo Moderato testnet",
+    "rpc": "https://rpc.moderato.tempo.xyz",
+    "explorer": "https://explore.testnet.tempo.xyz"
+  },
+  "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+  "taker": "0x6D55bFF029Aa298cAf87947A9E3F684547C0fC66",
+  "disclosure": "Every transaction is real and on Tempo Moderato. Fills came from a second testnet account controlled by Korrin, used to exercise the flip lifecycle. They are not external market demand.",
+  "mandate": {
+    "id": "captured-alpha-session",
+    "name": "AlphaUSD launch corridor",
+    "owner": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+    "chainId": 42431,
+    "base": {
+      "address": "0x20c0000000000000000000000000000000000001",
+      "symbol": "AlphaUSD",
+      "decimals": 6
+    },
+    "quote": {
+      "address": "0x20c0000000000000000000000000000000000000",
+      "symbol": "PathUSD",
+      "decimals": 6
+    },
+    "bookKey": "0x3bfd5cdc8e0daf98f3d67a44ff65724362321f4b1054dee562599033633e8dfe",
+    "targetTick": 540,
+    "bandTicks": 100,
+    "quoteOffsetTicks": 40,
+    "targetBidDepth": "100000000",
+    "targetAskDepth": "100000000",
+    "maxBaseAllocation": "500000000",
+    "maxQuoteAllocation": "500000000",
+    "reserveBase": "50000000",
+    "reserveQuote": "50000000",
+    "maxOrderAmount": "100000000",
+    "maxActionsPerHour": 12,
+    "maxDataAgeSeconds": 30,
+    "maxInventoryShareBps": 7500,
+    "executionMode": "approval_required",
+    "status": "armed",
+    "version": 1,
+    "createdAt": "2026-10-12T02:00:24.652Z",
+    "updatedAt": "2026-10-12T02:00:24.652Z",
+    "policyDigest": "0x6321e94423fc9a013d6434150085316ed64122ef7855f62776f767577eb76429"
+  },
+  "window": {
+    "from": 380,
+    "to": 700
+  },
+  "frames": [
+    {
+      "kind": "propose",
+      "title": "Mandate armed on the AlphaUSD book",
+      "narration": "Target 1.0054 ± 10 bp. Korrin reads the live book and the signer's balances before deciding anything.",
+      "actor": "korrin",
+      "index": 0,
+      "atMs": 7825,
+      "book": {
+        "blockNumber": "39209481",
+        "observedAt": 1791770425210,
+        "bestBidTick": 480,
+        "bestAskTick": 600,
+        "levels": [
+          {
+            "tick": 480,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "7331009"
+          },
+          {
+            "tick": 470,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "15745488899974",
+            "head": "7430830"
+          },
+          {
+            "tick": 460,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "993722000000",
+            "head": "7334253"
+          },
+          {
+            "tick": 450,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "1104708000000",
+            "head": "7334061"
+          },
+          {
+            "tick": 440,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "38411339999990",
+            "head": "7422339"
+          },
+          {
+            "tick": 430,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "87458999998",
+            "head": "7307100"
+          },
+          {
+            "tick": 420,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "73874000000",
+            "head": "7333907"
+          },
+          {
+            "tick": 410,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 400,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 390,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "110811979999997",
+            "head": "7332806"
+          },
+          {
+            "tick": 380,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 600,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 610,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 620,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 630,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 640,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 650,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 660,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 670,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 680,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 690,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 700,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          }
+        ]
+      },
+      "orders": [],
+      "balances": [
+        {
+          "token": "0x20c0000000000000000000000000000000000001",
+          "wallet": "1000000000000",
+          "dex": "0"
+        },
+        {
+          "token": "0x20c0000000000000000000000000000000000000",
+          "wallet": "999899508367",
+          "dex": "100590000"
+        }
+      ],
+      "decision": {
+        "kind": "PLACE_BID",
+        "reasonCode": "depth_shortfall",
+        "cause": "Confirmed bid depth is 0.00 AlphaUSD of 100.00 AlphaUSD target (0%).",
+        "interpretation": "The bid side is 100.00 AlphaUSD short inside the approved corridor.",
+        "action": "Place one flip bid for 100.00 AlphaUSD at 1.0050, flipping to 1.0058 when filled.",
+        "nextCondition": null,
+        "candidate": {
+          "side": "buy",
+          "tick": 500,
+          "flipTick": 580,
+          "amount": "100000000"
+        }
+      },
+      "mandateStatus": "armed"
+    },
+    {
+      "kind": "confirm",
+      "title": "Order 18439345 confirmed resting",
+      "narration": "The operator approved the proposal. Korrin waited for the receipt, then read the order back with getOrder before drawing it as liquidity.",
+      "actor": "operator",
+      "tx": {
+        "hash": "0xd658f11ba89d4d4391e4d5522267974c97f46b9a5fdfc44e0fda2c089fc8794f",
+        "block": "39209488",
+        "events": [
+          {
+            "event": "OrderPlaced",
+            "logIndex": 8,
+            "args": {
+              "orderId": "18439345",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "token": "0x20C0000000000000000000000000000000000001",
+              "amount": "100000000",
+              "isBid": true,
+              "tick": 500,
+              "isFlipOrder": true,
+              "flipTick": 580
+            }
+          }
+        ],
+        "status": "success"
+      },
+      "index": 1,
+      "atMs": 12090,
+      "book": {
+        "blockNumber": "39209489",
+        "observedAt": 1791770429808,
+        "bestBidTick": 500,
+        "bestAskTick": 600,
+        "levels": [
+          {
+            "tick": 500,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "100000000",
+            "head": "18439345"
+          },
+          {
+            "tick": 490,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 480,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "7331009"
+          },
+          {
+            "tick": 470,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "15745488899974",
+            "head": "7430830"
+          },
+          {
+            "tick": 460,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "993722000000",
+            "head": "7334253"
+          },
+          {
+            "tick": 450,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 440,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "38411339999990",
+            "head": "7422339"
+          },
+          {
+            "tick": 430,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 420,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 410,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 400,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 390,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 380,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 600,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 610,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 620,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 630,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 640,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 650,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 660,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 670,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 680,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 690,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 700,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          }
+        ]
+      },
+      "orders": [
+        {
+          "orderId": "18439345",
+          "status": "live",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x3bfd5cdc8e0daf98f3d67a44ff65724362321f4b1054dee562599033633e8dfe",
+          "isBid": true,
+          "tick": 500,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "isFlip": true,
+          "flipTick": 580
+        }
+      ],
+      "balances": [
+        {
+          "token": "0x20c0000000000000000000000000000000000001",
+          "wallet": "1000000000000",
+          "dex": "0"
+        },
+        {
+          "token": "0x20c0000000000000000000000000000000000000",
+          "wallet": "999899508158",
+          "dex": "90000"
+        }
+      ],
+      "decision": {
+        "kind": "PLACE_ASK",
+        "reasonCode": "depth_shortfall",
+        "cause": "Confirmed ask depth is 0.00 AlphaUSD of 100.00 AlphaUSD target (0%).",
+        "interpretation": "The ask side is 100.00 AlphaUSD short inside the approved corridor.",
+        "action": "Place one flip ask for 100.00 AlphaUSD at 1.0058, flipping to 1.0050 when filled.",
+        "nextCondition": null,
+        "candidate": {
+          "side": "sell",
+          "tick": 580,
+          "flipTick": 500,
+          "amount": "100000000"
+        }
+      },
+      "mandateStatus": "active"
+    },
+    {
+      "kind": "flip",
+      "title": "Filled and flipped. Order 18439345 keeps its ID",
+      "narration": "A taker sold into the bid. The DEX emitted OrderFilled then OrderFlipped in the same transaction, and readback shows the same order ID now resting as an ask.",
+      "actor": "test-taker",
+      "tx": {
+        "hash": "0x2c962bca3e661c3b523f50e0387142f7f5d544c5dc1feaf04481d0d93c11f385",
+        "block": "39209495",
+        "events": [
+          {
+            "event": "OrderFilled",
+            "logIndex": 6,
+            "args": {
+              "orderId": "18439345",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "taker": "0x6D55bFF029Aa298cAf87947A9E3F684547C0fC66",
+              "amountFilled": "100000000",
+              "partialFill": false
+            }
+          },
+          {
+            "event": "OrderFlipped",
+            "logIndex": 7,
+            "args": {
+              "orderId": "18439345",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "token": "0x20C0000000000000000000000000000000000001",
+              "amount": "100000000",
+              "isBid": false,
+              "tick": 580,
+              "flipTick": 500
+            }
+          }
+        ],
+        "status": "success"
+      },
+      "index": 2,
+      "atMs": 15718,
+      "book": {
+        "blockNumber": "39209496",
+        "observedAt": 1791770434204,
+        "bestBidTick": 480,
+        "bestAskTick": 580,
+        "levels": [
+          {
+            "tick": 480,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "7331009"
+          },
+          {
+            "tick": 470,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "15745488899974",
+            "head": "7430830"
+          },
+          {
+            "tick": 460,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "993722000000",
+            "head": "7334253"
+          },
+          {
+            "tick": 450,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 440,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "38411339999990",
+            "head": "7422339"
+          },
+          {
+            "tick": 430,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 420,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 410,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 400,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 390,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 380,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 580,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "100000000",
+            "head": "18439345"
+          },
+          {
+            "tick": 590,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 600,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 610,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 620,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 630,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 640,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 650,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 660,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 670,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 680,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 690,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 700,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          }
+        ]
+      },
+      "orders": [
+        {
+          "orderId": "18439345",
+          "status": "live",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x3bfd5cdc8e0daf98f3d67a44ff65724362321f4b1054dee562599033633e8dfe",
+          "isBid": false,
+          "tick": 580,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "isFlip": true,
+          "flipTick": 500
+        }
+      ],
+      "balances": [
+        {
+          "token": "0x20c0000000000000000000000000000000000001",
+          "wallet": "1000000000000",
+          "dex": "0"
+        },
+        {
+          "token": "0x20c0000000000000000000000000000000000000",
+          "wallet": "999899508158",
+          "dex": "90000"
+        }
+      ],
+      "decision": {
+        "kind": "PLACE_BID",
+        "reasonCode": "depth_shortfall",
+        "cause": "Confirmed bid depth is 0.00 AlphaUSD of 100.00 AlphaUSD target (0%).",
+        "interpretation": "The bid side is 100.00 AlphaUSD short inside the approved corridor.",
+        "action": "Place one flip bid for 100.00 AlphaUSD at 1.0050, flipping to 1.0058 when filled.",
+        "nextCondition": null,
+        "candidate": {
+          "side": "buy",
+          "tick": 500,
+          "flipTick": 580,
+          "amount": "100000000"
+        }
+      },
+      "mandateStatus": "active"
+    },
+    {
+      "kind": "flip",
+      "title": "Filled again, flipped back to a bid",
+      "narration": "A taker bought the ask. Same order ID, back on the bid side. Each flip is verified by readback, never inferred from the fill alone.",
+      "actor": "test-taker",
+      "tx": {
+        "hash": "0x1e53090f720305ec085b1f4fcf338c8caf2b28db7b6636bb780867af25e27fcf",
+        "block": "39209501",
+        "events": [
+          {
+            "event": "OrderFilled",
+            "logIndex": 0,
+            "args": {
+              "orderId": "18439345",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "taker": "0x6D55bFF029Aa298cAf87947A9E3F684547C0fC66",
+              "amountFilled": "100000000",
+              "partialFill": false
+            }
+          },
+          {
+            "event": "OrderFlipped",
+            "logIndex": 1,
+            "args": {
+              "orderId": "18439345",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "token": "0x20C0000000000000000000000000000000000001",
+              "amount": "100000000",
+              "isBid": true,
+              "tick": 500,
+              "flipTick": 580
+            }
+          }
+        ],
+        "status": "success"
+      },
+      "index": 3,
+      "atMs": 19347,
+      "book": {
+        "blockNumber": "39209501",
+        "observedAt": 1791770437854,
+        "bestBidTick": 500,
+        "bestAskTick": 600,
+        "levels": [
+          {
+            "tick": 500,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "100000000",
+            "head": "18439345"
+          },
+          {
+            "tick": 490,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 480,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "7331009"
+          },
+          {
+            "tick": 470,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "15745488899974",
+            "head": "7430830"
+          },
+          {
+            "tick": 460,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "993722000000",
+            "head": "7334253"
+          },
+          {
+            "tick": 450,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 440,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "38411339999990",
+            "head": "7422339"
+          },
+          {
+            "tick": 430,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 420,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 410,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 400,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 390,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 380,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 600,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 610,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 620,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 630,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 640,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 650,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 660,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 670,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 680,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 690,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 700,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          }
+        ]
+      },
+      "orders": [
+        {
+          "orderId": "18439345",
+          "status": "live",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x3bfd5cdc8e0daf98f3d67a44ff65724362321f4b1054dee562599033633e8dfe",
+          "isBid": true,
+          "tick": 500,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "isFlip": true,
+          "flipTick": 580
+        }
+      ],
+      "balances": [
+        {
+          "token": "0x20c0000000000000000000000000000000000001",
+          "wallet": "1000000000000",
+          "dex": "0"
+        },
+        {
+          "token": "0x20c0000000000000000000000000000000000000",
+          "wallet": "999899508158",
+          "dex": "170000"
+        }
+      ],
+      "decision": {
+        "kind": "PLACE_ASK",
+        "reasonCode": "depth_shortfall",
+        "cause": "Confirmed ask depth is 0.00 AlphaUSD of 100.00 AlphaUSD target (0%).",
+        "interpretation": "The ask side is 100.00 AlphaUSD short inside the approved corridor.",
+        "action": "Place one flip ask for 100.00 AlphaUSD at 1.0058, flipping to 1.0050 when filled.",
+        "nextCondition": null,
+        "candidate": {
+          "side": "sell",
+          "tick": 580,
+          "flipTick": 500,
+          "amount": "100000000"
+        }
+      },
+      "mandateStatus": "active"
+    },
+    {
+      "kind": "pause",
+      "title": "Operator paused new actions",
+      "narration": "Pause stops new proposals. The resting order stays on the book and Korrin keeps reading the market.",
+      "actor": "operator",
+      "index": 4,
+      "atMs": 21453,
+      "book": {
+        "blockNumber": "39209505",
+        "observedAt": 1791770439827,
+        "bestBidTick": 500,
+        "bestAskTick": 600,
+        "levels": [
+          {
+            "tick": 500,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "100000000",
+            "head": "18439345"
+          },
+          {
+            "tick": 490,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 480,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "7331009"
+          },
+          {
+            "tick": 470,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "15745488899974",
+            "head": "7430830"
+          },
+          {
+            "tick": 460,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "993722000000",
+            "head": "7334253"
+          },
+          {
+            "tick": 450,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 440,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "38411339999990",
+            "head": "7422339"
+          },
+          {
+            "tick": 430,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 420,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 410,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 400,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 390,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 380,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 600,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 610,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 620,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 630,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 640,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 650,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 660,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 670,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 680,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 690,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 700,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          }
+        ]
+      },
+      "orders": [
+        {
+          "orderId": "18439345",
+          "status": "live",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x3bfd5cdc8e0daf98f3d67a44ff65724362321f4b1054dee562599033633e8dfe",
+          "isBid": true,
+          "tick": 500,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "isFlip": true,
+          "flipTick": 580
+        }
+      ],
+      "balances": [
+        {
+          "token": "0x20c0000000000000000000000000000000000001",
+          "wallet": "1000000000000",
+          "dex": "0"
+        },
+        {
+          "token": "0x20c0000000000000000000000000000000000000",
+          "wallet": "999899508158",
+          "dex": "170000"
+        }
+      ],
+      "decision": {
+        "kind": "NO_ACTION",
+        "reasonCode": "mandate_paused",
+        "cause": "Mandate is paused by its operator.",
+        "interpretation": "Pause blocks new actions. Existing resting orders stay on the book until cancelled.",
+        "action": "Hold. No order will be placed.",
+        "nextCondition": "Resume the mandate to allow new proposals."
+      },
+      "mandateStatus": "paused"
+    },
+    {
+      "kind": "cancel",
+      "title": "Order 18439345 cancelled and verified absent",
+      "narration": "Cancellation is confirmed only when getOrder reverts OrderDoesNotExist. The escrow is now in the DEX balance, not the wallet.",
+      "actor": "operator",
+      "tx": {
+        "hash": "0x4faccc32becc7486f7d9938f8a970859a668fbf7546081d7e0df5648bc70be36",
+        "block": "39209510",
+        "events": [
+          {
+            "event": "OrderCancelled",
+            "logIndex": 0,
+            "args": {
+              "orderId": "18439345"
+            }
+          }
+        ],
+        "status": "success"
+      },
+      "index": 5,
+      "atMs": 25087,
+      "book": {
+        "blockNumber": "39209511",
+        "observedAt": 1791770443575,
+        "bestBidTick": 480,
+        "bestAskTick": 600,
+        "levels": [
+          {
+            "tick": 480,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "7331009"
+          },
+          {
+            "tick": 470,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "15745488899974",
+            "head": "7430830"
+          },
+          {
+            "tick": 460,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "993722000000",
+            "head": "7334253"
+          },
+          {
+            "tick": 450,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 440,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "38411339999990",
+            "head": "7422339"
+          },
+          {
+            "tick": 430,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 420,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 410,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 400,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 390,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 380,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 600,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 610,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 620,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 630,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 640,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 650,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 660,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 670,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 680,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 690,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 700,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          }
+        ]
+      },
+      "orders": [
+        {
+          "orderId": "18439345",
+          "status": "absent"
+        }
+      ],
+      "balances": [
+        {
+          "token": "0x20c0000000000000000000000000000000000001",
+          "wallet": "1000000000000",
+          "dex": "0"
+        },
+        {
+          "token": "0x20c0000000000000000000000000000000000000",
+          "wallet": "999899508112",
+          "dex": "100670000"
+        }
+      ],
+      "decision": {
+        "kind": "NO_ACTION",
+        "reasonCode": "mandate_paused",
+        "cause": "Mandate is paused by its operator.",
+        "interpretation": "Pause blocks new actions. Existing resting orders stay on the book until cancelled.",
+        "action": "Hold. No order will be placed.",
+        "nextCondition": "Resume the mandate to allow new proposals."
+      },
+      "mandateStatus": "paused"
+    },
+    {
+      "kind": "withdraw",
+      "title": "DEX balance withdrawn to the wallet",
+      "narration": "A separate withdraw call moves the refunded escrow back to the signer. Only now is the capital back in the wallet.",
+      "actor": "operator",
+      "tx": {
+        "hash": "0x1615f48e0140e923d9625e4d24c2852fcf0f31e4e6585ed79367dd90e8e25b45",
+        "block": "39209516",
+        "events": [],
+        "status": "success"
+      },
+      "index": 6,
+      "atMs": 28428,
+      "book": {
+        "blockNumber": "39209516",
+        "observedAt": 1791770446949,
+        "bestBidTick": 480,
+        "bestAskTick": 600,
+        "levels": [
+          {
+            "tick": 480,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "7331009"
+          },
+          {
+            "tick": 470,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "15745488899974",
+            "head": "7430830"
+          },
+          {
+            "tick": 460,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "993722000000",
+            "head": "7334253"
+          },
+          {
+            "tick": 450,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 440,
+            "isBid": true,
+            "status": "ok",
+            "liquidity": "38411339999990",
+            "head": "7422339"
+          },
+          {
+            "tick": 430,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 420,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 410,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 400,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 390,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 380,
+            "isBid": true,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 600,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 610,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 620,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 630,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 640,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 650,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 660,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          },
+          {
+            "tick": 670,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 680,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 690,
+            "isBid": false,
+            "status": "ok",
+            "liquidity": "0",
+            "head": "0"
+          },
+          {
+            "tick": 700,
+            "isBid": false,
+            "status": "unreadable",
+            "liquidity": null,
+            "head": null,
+            "error": "Request exceeds defined limit."
+          }
+        ]
+      },
+      "orders": [
+        {
+          "orderId": "18439345",
+          "status": "absent"
+        }
+      ],
+      "balances": [
+        {
+          "token": "0x20c0000000000000000000000000000000000001",
+          "wallet": "1000000000000",
+          "dex": "0"
+        },
+        {
+          "token": "0x20c0000000000000000000000000000000000000",
+          "wallet": "1000000178087",
+          "dex": "0"
+        }
+      ],
+      "decision": {
+        "kind": "NO_ACTION",
+        "reasonCode": "mandate_paused",
+        "cause": "Mandate is paused by its operator.",
+        "interpretation": "Pause blocks new actions. Existing resting orders stay on the book until cancelled.",
+        "action": "Hold. No order will be placed.",
+        "nextCondition": "Resume the mandate to allow new proposals."
+      },
+      "mandateStatus": "paused"
+    }
+  ]
+}

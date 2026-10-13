@@ -1,0 +1,230 @@
+{
+  "runId": "2026-10-12T01-00-05-186Z",
+  "network": {
+    "name": "Tempo Testnet (Moderato)",
+    "chainId": 42431,
+    "rpc": "https://rpc.moderato.tempo.xyz",
+    "explorer": "https://explore.testnet.tempo.xyz"
+  },
+  "sdk": {
+    "viem": "2.57.4"
+  },
+  "dex": "0xdec0000000000000000000000000000000000000",
+  "pair": {
+    "base": "0x20c0000000000000000000000000000000000002",
+    "quote": "0x20c0000000000000000000000000000000000000"
+  },
+  "side": "sell",
+  "amount": "100000000",
+  "summary": {
+    "orderId": "18439176",
+    "placeHash": "0x961811ffbe08a6567c2209c819eeb126708c11a569e4d10651e886a741791fa4",
+    "placeBlock": "39203444",
+    "cancelHash": "0x9ba92ecd0b1d40ad1826aae4b224207cf31deb8893daadd08618772f95dedf9c",
+    "cancelBlock": "39203451",
+    "tick": 30,
+    "flipTick": -30
+  },
+  "steps": [
+    {
+      "step": "signer",
+      "at": "2026-10-12T00:57:51.572Z",
+      "ms": 613,
+      "detail": {
+        "address": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+        "chainId": 42431
+      }
+    },
+    {
+      "step": "balances.before",
+      "at": "2026-10-12T00:57:53.069Z",
+      "ms": 2108,
+      "detail": {
+        "wallet": {
+          "PathUSD": "999899.508633",
+          "BetaUSD": "1000000"
+        },
+        "dexInternal": {
+          "PathUSD": "100.59",
+          "BetaUSD": "0"
+        }
+      }
+    },
+    {
+      "step": "book.observed",
+      "at": "2026-10-12T00:57:53.353Z",
+      "ms": 2393,
+      "detail": {
+        "base": "0x20C0000000000000000000000000000000000002",
+        "quote": "0x20C0000000000000000000000000000000000000",
+        "bestBidTick": -10,
+        "bestAskTick": 0
+      }
+    },
+    {
+      "step": "tickLevel.before",
+      "at": "2026-10-12T00:58:55.884Z",
+      "ms": 64924,
+      "detail": {
+        "tick": 30,
+        "price": "1.0003",
+        "unreadable": "Transaction creation failed."
+      }
+    },
+    {
+      "step": "placeFlip.submitted",
+      "at": "2026-10-12T00:58:56.435Z",
+      "ms": 65474,
+      "detail": {
+        "hash": "0x961811ffbe08a6567c2209c819eeb126708c11a569e4d10651e886a741791fa4"
+      }
+    },
+    {
+      "step": "placeFlip.included",
+      "at": "2026-10-12T00:58:57.997Z",
+      "ms": 67037,
+      "detail": {
+        "status": "success",
+        "block": "39203444"
+      }
+    },
+    {
+      "step": "OrderPlaced.decoded",
+      "at": "2026-10-12T00:58:58.000Z",
+      "ms": 67039,
+      "detail": {
+        "orderId": "18439176",
+        "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+        "token": "0x20C0000000000000000000000000000000000002",
+        "amount": "100000000",
+        "isBid": false,
+        "tick": 30,
+        "isFlipOrder": true,
+        "flipTick": -30,
+        "logIndex": 1
+      }
+    },
+    {
+      "step": "getOrder.readback",
+      "at": "2026-10-12T00:58:58.550Z",
+      "ms": 67589,
+      "detail": {
+        "atBlock": "39203444",
+        "order": {
+          "orderId": "18439176",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x1d4a3d252ac88203ffa81ba59c52543fc9bf8976382b73bdfc08bc6dc5681d32",
+          "isBid": false,
+          "tick": 30,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "prev": "13384672",
+          "next": "0",
+          "isFlip": true,
+          "flipTick": -30
+        },
+        "latest": {
+          "orderId": "18439176",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x1d4a3d252ac88203ffa81ba59c52543fc9bf8976382b73bdfc08bc6dc5681d32",
+          "isBid": false,
+          "tick": 30,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "prev": "13384672",
+          "next": "0",
+          "isFlip": true,
+          "flipTick": -30
+        },
+        "checks": {
+          "makerMatches": true,
+          "sideMatches": true,
+          "tickMatches": true,
+          "flipTickMatches": true,
+          "isFlip": true,
+          "remainingMatches": true
+        }
+      }
+    },
+    {
+      "step": "tickLevel.after",
+      "at": "2026-10-12T00:58:58.934Z",
+      "ms": 67973,
+      "detail": {
+        "unreadable": "Transaction creation failed."
+      }
+    },
+    {
+      "step": "balances.resting",
+      "at": "2026-10-12T00:59:00.029Z",
+      "ms": 69069,
+      "detail": {
+        "wallet": {
+          "PathUSD": "999899.508564",
+          "BetaUSD": "999900"
+        },
+        "dexInternal": {
+          "PathUSD": "100.59",
+          "BetaUSD": "0"
+        }
+      }
+    },
+    {
+      "step": "cancel.submitted",
+      "at": "2026-10-12T00:59:00.631Z",
+      "ms": 69671,
+      "detail": {
+        "hash": "0x9ba92ecd0b1d40ad1826aae4b224207cf31deb8893daadd08618772f95dedf9c"
+      }
+    },
+    {
+      "step": "cancel.included",
+      "at": "2026-10-12T00:59:01.679Z",
+      "ms": 70719,
+      "detail": {
+        "status": "success",
+        "block": "39203451"
+      }
+    },
+    {
+      "step": "OrderCancelled.decoded",
+      "at": "2026-10-12T00:59:01.681Z",
+      "ms": 70720,
+      "detail": {
+        "orderId": "18439176",
+        "logIndex": 0
+      }
+    },
+    {
+      "step": "getOrder.afterCancel",
+      "at": "2026-10-12T00:59:01.933Z",
+      "ms": 70973,
+      "detail": {
+        "result": "OrderDoesNotExist"
+      }
+    },
+    {
+      "step": "tickLevel.afterCancel",
+      "at": "2026-10-12T01:00:03.880Z",
+      "ms": 132920,
+      "detail": {
+        "unreadable": "Transaction creation failed."
+      }
+    },
+    {
+      "step": "balances.after",
+      "at": "2026-10-12T01:00:05.185Z",
+      "ms": 134225,
+      "detail": {
+        "wallet": {
+          "PathUSD": "999899.508367",
+          "BetaUSD": "999900"
+        },
+        "dexInternal": {
+          "PathUSD": "100.59",
+          "BetaUSD": "100"
+        }
+      }
+    }
+  ]
+}

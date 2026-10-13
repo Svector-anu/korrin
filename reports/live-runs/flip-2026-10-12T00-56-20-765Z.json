@@ -1,0 +1,264 @@
+{
+  "runId": "flip-2026-10-12T00-56-20-765Z",
+  "kind": "flip-lifecycle",
+  "disclosure": "Fills were executed by a second Korrin-owned testnet account to exercise the flip lifecycle. They are not external market demand.",
+  "network": {
+    "chainId": 42431,
+    "rpc": "https://rpc.moderato.tempo.xyz",
+    "explorer": "https://explore.testnet.tempo.xyz"
+  },
+  "pair": {
+    "base": "0x20c0000000000000000000000000000000000001",
+    "quote": "0x20c0000000000000000000000000000000000000"
+  },
+  "orderId": "18439167",
+  "steps": [
+    {
+      "step": "accounts",
+      "at": "2026-10-12T00:56:10.261Z",
+      "ms": 2,
+      "detail": {
+        "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+        "taker": "0x6D55bFF029Aa298cAf87947A9E3F684547C0fC66",
+        "takerRole": "korrin-owned test taker"
+      }
+    },
+    {
+      "step": "faucet.fund taker",
+      "at": "2026-10-12T00:56:13.592Z",
+      "ms": 3331,
+      "detail": {
+        "address": "0x6D55bFF029Aa298cAf87947A9E3F684547C0fC66",
+        "hashes": [
+          "0x005e1a0f06f7ac30c4802f33e26f3fd33a65f5e5770ac0cd231cb2b0eb9a3fd8",
+          "0xb899d4bd41be3e011a18d574f484f5e795f13c9e050235039ceaf8dc0cfebc5c",
+          "0xd8a725d3fc56080c1982924e110035d937c44e4126c4f6d1ffa0a3161c3fbefe",
+          "0x9d634cb39d5170a172d7f85cbad89ae287d20f5f746eeed4a0cdc66cad3bf7fc",
+          "0xf4b272496ad014ff5a3ab5875a52a005f94a8bc37a4cbb597991385ffd056e27"
+        ]
+      }
+    },
+    {
+      "step": "book.observed",
+      "at": "2026-10-12T00:56:13.849Z",
+      "ms": 3588,
+      "detail": {
+        "base": "0x20C0000000000000000000000000000000000001",
+        "quote": "0x20C0000000000000000000000000000000000000",
+        "bestBidTick": 480,
+        "bestAskTick": 600
+      }
+    },
+    {
+      "step": "placeFlip.submitted",
+      "at": "2026-10-12T00:56:14.362Z",
+      "ms": 4101,
+      "detail": {
+        "hash": "0xa2498e5310ba427ba723bebc6d1603b2052798b98bacaf3a33d1fd25d5523fe2",
+        "tick": 490,
+        "price": "1.0049",
+        "flipTick": 590,
+        "flipPrice": "1.0059"
+      }
+    },
+    {
+      "step": "placeFlip.included",
+      "at": "2026-10-12T00:56:15.368Z",
+      "ms": 5107,
+      "detail": {
+        "block": "39203179",
+        "orderId": "18439167",
+        "events": [
+          {
+            "event": "OrderPlaced",
+            "logIndex": 1,
+            "args": {
+              "orderId": "18439167",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "token": "0x20C0000000000000000000000000000000000001",
+              "amount": "100000000",
+              "isBid": true,
+              "tick": 490,
+              "isFlipOrder": true,
+              "flipTick": 590
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step": "getOrder.afterPlace",
+      "at": "2026-10-12T00:56:15.605Z",
+      "ms": 5344,
+      "detail": {
+        "orderId": "18439167",
+        "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+        "bookKey": "0x3bfd5cdc8e0daf98f3d67a44ff65724362321f4b1054dee562599033633e8dfe",
+        "isBid": true,
+        "tick": 490,
+        "amount": "100000000",
+        "remaining": "100000000",
+        "prev": "0",
+        "next": "0",
+        "isFlip": true,
+        "flipTick": 590
+      }
+    },
+    {
+      "step": "taker.sell.submitted",
+      "at": "2026-10-12T00:56:16.111Z",
+      "ms": 5850,
+      "detail": {
+        "hash": "0x36b19a933cd0be1014ce0a39fa0df8eb5797f3d9237aaa87a30e379f53fa257a"
+      }
+    },
+    {
+      "step": "taker.sell.included",
+      "at": "2026-10-12T00:56:16.432Z",
+      "ms": 6171,
+      "detail": {
+        "block": "39203181",
+        "status": "success",
+        "events": [
+          {
+            "event": "OrderFilled",
+            "logIndex": 3,
+            "args": {
+              "orderId": "18439167",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "taker": "0x6D55bFF029Aa298cAf87947A9E3F684547C0fC66",
+              "amountFilled": "100000000",
+              "partialFill": false
+            }
+          },
+          {
+            "event": "OrderFlipped",
+            "logIndex": 4,
+            "args": {
+              "orderId": "18439167",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "token": "0x20C0000000000000000000000000000000000001",
+              "amount": "100000000",
+              "isBid": false,
+              "tick": 590,
+              "flipTick": 490
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step": "getOrder.afterFlip1",
+      "at": "2026-10-12T00:56:16.696Z",
+      "ms": 6435,
+      "detail": {
+        "order": {
+          "orderId": "18439167",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x3bfd5cdc8e0daf98f3d67a44ff65724362321f4b1054dee562599033633e8dfe",
+          "isBid": false,
+          "tick": 590,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "prev": "0",
+          "next": "0",
+          "isFlip": true,
+          "flipTick": 490
+        },
+        "checks": {
+          "sameOrderId": true,
+          "nowAsk": true,
+          "atFlipTick": true,
+          "flipTickNowOriginalTick": true
+        }
+      }
+    },
+    {
+      "step": "taker.buy.submitted",
+      "at": "2026-10-12T00:56:17.227Z",
+      "ms": 6966,
+      "detail": {
+        "hash": "0x57a108a513c304c7a66ce3e3c596c17db0235bff92d3297efac3053df12e7d7b"
+      }
+    },
+    {
+      "step": "taker.buy.included",
+      "at": "2026-10-12T00:56:18.368Z",
+      "ms": 8107,
+      "detail": {
+        "block": "39203183",
+        "status": "success",
+        "events": [
+          {
+            "event": "OrderFilled",
+            "logIndex": 8,
+            "args": {
+              "orderId": "18439167",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "taker": "0x6D55bFF029Aa298cAf87947A9E3F684547C0fC66",
+              "amountFilled": "100000000",
+              "partialFill": false
+            }
+          },
+          {
+            "event": "OrderFlipped",
+            "logIndex": 9,
+            "args": {
+              "orderId": "18439167",
+              "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+              "token": "0x20C0000000000000000000000000000000000001",
+              "amount": "100000000",
+              "isBid": true,
+              "tick": 490,
+              "flipTick": 590
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step": "getOrder.afterFlip2",
+      "at": "2026-10-12T00:56:18.631Z",
+      "ms": 8370,
+      "detail": {
+        "orderId": "18439167",
+        "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+        "bookKey": "0x3bfd5cdc8e0daf98f3d67a44ff65724362321f4b1054dee562599033633e8dfe",
+        "isBid": true,
+        "tick": 490,
+        "amount": "100000000",
+        "remaining": "100000000",
+        "prev": "0",
+        "next": "0",
+        "isFlip": true,
+        "flipTick": 590
+      }
+    },
+    {
+      "step": "cancel.included",
+      "at": "2026-10-12T00:56:20.502Z",
+      "ms": 10242,
+      "detail": {
+        "hash": "0x01e0011028b5b97e66925df92a4866a4a07d7fbe3d07a702ac9b7a08930f9aed",
+        "block": "39203187",
+        "events": [
+          {
+            "event": "OrderCancelled",
+            "logIndex": 15,
+            "args": {
+              "orderId": "18439167"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step": "getOrder.afterCancel",
+      "at": "2026-10-12T00:56:20.765Z",
+      "ms": 10504,
+      "detail": {
+        "result": "The contract function \"getOrder\" reverted."
+      }
+    }
+  ]
+}

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Korrin pitch film</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Manrope";
+        src: url("assets/fonts/manrope-latin.woff2") format("woff2");
+        font-weight: 200 800;
+        font-style: normal;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0c0e;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0b0c0e;
+        color: #f2f2f2;
+        font-family: "Manrope", sans-serif;
+        letter-spacing: -0.015em;
+      }
+      .mono {
+        font-family: "JetBrains Mono", monospace;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.01em;
+      }
+
+      /* Persistent background: matte canvas, price-ruler hairlines, one soft glow */
+      .bg-glow {
+        position: absolute;
+        width: 1500px;
+        height: 1500px;
+        left: 760px;
+        top: -360px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(107, 156, 240, 0.16) 0%, rgba(79, 176, 143, 0.07) 38%, rgba(11, 12, 14, 0) 68%);
+      }
+      .bg-ruler {
+        position: absolute;
+        left: 120px;
+        right: 120px;
+        bottom: 92px;
+        height: 22px;
+        border-top: 2px solid rgba(255, 255, 255, 0.09);
+        background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 56px);
+        background-size: 100% 12px;
+        background-repeat: no-repeat;
+      }
+      .chrome {
+        position: absolute;
+        left: 120px;
+        right: 120px;
+        top: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 24px;
+        color: #cececf;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 30px;
+        font-weight: 500;
+        color: #f2f2f2;
+        letter-spacing: -0.03em;
+      }
+      .net {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 20px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+        font-size: 22px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #4fb08f;
+        box-shadow: 0 0 0 6px rgba(79, 176, 143, 0.18);
+      }
+
+      /* Scenes */
+      .scene {
+        position: absolute;
+        inset: 0;
+        padding: 170px 120px 150px;
+      }
+      .stage {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .h-xl {
+        font-size: 104px;
+        line-height: 1.02;
+        font-weight: 400;
+        letter-spacing: -0.045em;
+      }
+      .h-lg {
+        font-size: 80px;
+        line-height: 1.06;
+        font-weight: 400;
+        letter-spacing: -0.04em;
+      }
+      .h-md {
+        font-size: 58px;
+        line-height: 1.1;
+        font-weight: 400;
+        letter-spacing: -0.035em;
+      }
+      .copy {
+        font-size: 34px;
+        line-height: 1.45;
+        color: #cececf;
+        letter-spacing: -0.012em;
+      }
+      .label {
+        font-size: 24px;
+        color: #a3a4a6;
+      }
+      .word {
+        display: inline-block;
+        opacity: 0;
+      }
+      .line {
+        display: block;
+      }
+      .bid {
+        color: #4fb08f;
+      }
+      .ask {
+        color: #6b9cf0;
+      }
+      .card {
+        background: #131416;
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+      }
+
+      /* S1 ladder */
+      .ladder {
+        position: absolute;
+        right: 0;
+        top: 30px;
+        width: 620px;
+        padding: 36px 40px;
+      }
+      .rung {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        align-items: center;
+        gap: 24px;
+        height: 54px;
+        font-size: 26px;
+      }
+      .rung .slot {
+        height: 26px;
+        border: 2px dashed rgba(255, 255, 255, 0.16);
+        border-radius: 6px;
+      }
+      .mid-rule {
+        height: 2px;
+        background: rgba(255, 255, 255, 0.22);
+        margin: 14px 0;
+      }
+
+      /* S2 */
+      .vs {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 260px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      .vs .card {
+        padding: 44px 48px;
+      }
+      .big-num {
+        font-size: 120px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-top: 18px;
+      }
+      .meter {
+        margin-top: 34px;
+        height: 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+      .meter > i {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 999px;
+        transform-origin: 0 50%;
+      }
+
+      /* S3 */
+      .two {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 250px;
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 40px;
+      }
+      .two .card {
+        padding: 44px 48px;
+      }
+      .want li {
+        list-style: none;
+        font-size: 32px;
+        line-height: 1.35;
+        padding: 14px 0;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+        color: #f2f2f2;
+      }
+      .code {
+        margin-top: 26px;
+        font-size: 30px;
+        line-height: 1.6;
+        color: #cececf;
+      }
+      .code b {
+        font-weight: 400;
+        color: #6b9cf0;
+      }
+
+      /* S4 */
+      .turn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .mark-xl {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 44px;
+      }
+
+      /* Footage frames: untimed wrappers, each video carries its own timing */
+      .frame {
+        position: absolute;
+        overflow: hidden;
+        border-radius: 20px;
+      }
+      .frame-inner {
+        position: absolute;
+        inset: 0;
+      }
+      .frame video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+      .side {
+        position: absolute;
+        top: 0;
+        width: 560px;
+      }
+      .side .h-md {
+        margin-bottom: 30px;
+      }
+      .points li {
+        list-style: none;
+        font-size: 30px;
+        line-height: 1.4;
+        color: #cececf;
+        padding: 16px 0 16px 34px;
+        position: relative;
+      }
+      .points li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 30px;
+        width: 14px;
+        height: 2px;
+        background: #4fb08f;
+      }
+      .lower {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 18px 26px;
+        border-radius: 14px;
+        background: rgba(19, 20, 22, 0.94);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        font-size: 22px;
+        color: #cececf;
+      }
+
+      /* S7 controls */
+      .controls {
+        display: grid;
+        gap: 18px;
+        margin-top: 26px;
+      }
+      .ctl {
+        padding: 22px 26px;
+      }
+      .ctl .t {
+        font-size: 30px;
+        color: #f2f2f2;
+      }
+      .ctl .d {
+        font-size: 24px;
+        color: #a3a4a6;
+        margin-top: 4px;
+        line-height: 1.35;
+      }
+
+      /* S8 */
+      .three {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 220px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .three .card {
+        padding: 40px 40px 44px;
+      }
+      .three .t {
+        font-size: 36px;
+        letter-spacing: -0.025em;
+      }
+      .three .d {
+        font-size: 26px;
+        color: #a3a4a6;
+        line-height: 1.4;
+        margin-top: 14px;
+      }
+      .flip-svg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+        height: 220px;
+      }
+      .flip-svg path {
+        fill: none;
+        stroke: #cececf;
+        stroke-width: 4;
+        stroke-linecap: round;
+      }
+
+      /* S9 */
+      .close {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .url {
+        margin-top: 40px;
+        font-size: 44px;
+        color: #f2f2f2;
+      }
+      .disclose {
+        margin-top: 46px;
+        font-size: 24px;
+        color: #a3a4a6;
+        max-width: 1300px;
+        line-height: 1.45;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-12qj" id="root" data-composition-id="main" data-start="0" data-duration="139" data-width="1920" data-height="1080">
+      <!-- persistent layer -->
+      <div data-hf-id="hf-4m88" class="bg-glow" id="bg-glow"></div>
+      <div data-hf-id="hf-mzja" class="bg-ruler"></div>
+      <div data-hf-id="hf-6ex2" class="chrome">
+        <div data-hf-id="hf-13o2" class="brand">
+          <svg data-hf-id="hf-s9bd" width="44" height="44" viewBox="0 0 24 24" aria-hidden="true">
+            <rect data-hf-id="hf-5ot5" x="0.75" y="0.75" width="22.5" height="22.5" rx="6.5" fill="#f2f2f2" />
+            <line data-hf-id="hf-4jhz" x1="7" y1="5.5" x2="7" y2="18.5" stroke="#0b0c0e" stroke-opacity="0.38" stroke-width="1.2" />
+            <line data-hf-id="hf-mh5n" x1="17" y1="5.5" x2="17" y2="18.5" stroke="#0b0c0e" stroke-opacity="0.38" stroke-width="1.2" />
+            <rect data-hf-id="hf-netj" x="9.4" y="10" width="2.2" height="8.5" rx="0.8" fill="#0b0c0e" />
+            <rect data-hf-id="hf-pu19" x="12.4" y="7" width="2.2" height="11.5" rx="0.8" fill="#0b0c0e" fill-opacity="0.62" />
+          </svg>
+          Korrin
+        </div>
+        <div data-hf-id="hf-wlhs" class="net"><span data-hf-id="hf-9gry" class="dot"></span>Tempo Moderato testnet</div>
+      </div>
+
+      <!-- S1 user: a new market with an empty book -->
+      <section data-hf-id="hf-gfny" id="s1" class="clip scene" data-start="0" data-duration="14" data-track-index="1">
+        <div data-hf-id="hf-jkxd" class="stage" id="s1-stage">
+          <h1 data-hf-id="hf-7qh9" class="h-xl" style="max-width: 980px">
+            <span data-hf-id="hf-6c9z" class="line"><span data-hf-id="hf-5701" class="word" id="s1-w1">A new</span> <span data-hf-id="hf-3s4d" class="word" id="s1-w2">stablecoin</span> <span data-hf-id="hf-gdx5" class="word" id="s1-w3">launches.</span></span>
+          </h1>
+          <p data-hf-id="hf-nldc" class="copy" id="s1-c1" style="margin-top: 44px; max-width: 900px; opacity: 0">Its holders need to convert it near 1.00. They can only trade against orders resting on the book.</p>
+          <p data-hf-id="hf-19fy" class="h-md" id="s1-c2" style="margin-top: 50px; opacity: 0">This book is empty.</p>
+          <div data-hf-id="hf-5rh5" class="ladder card" id="s1-ladder">
+            <div data-hf-id="hf-jtuz" class="label" style="margin-bottom: 18px">Asks</div>
+            <div data-hf-id="hf-pojm" class="rung"><span data-hf-id="hf-r0dd" class="mono ask">1.0010</span><span data-hf-id="hf-u1xt" class="slot"></span></div>
+            <div data-hf-id="hf-r6jq" class="rung"><span data-hf-id="hf-76d3" class="mono ask">1.0005</span><span data-hf-id="hf-fop1" class="slot"></span></div>
+            <div data-hf-id="hf-rkur" class="rung"><span data-hf-id="hf-8da6" class="mono ask">1.0002</span><span data-hf-id="hf-gvm4" class="slot"></span></div>
+            <div data-hf-id="hf-0a5l" class="mid-rule"></div>
+            <div data-hf-id="hf-rz5s" class="rung"><span data-hf-id="hf-x79c" class="mono bid">0.9998</span><span data-hf-id="hf-ghb3" class="slot"></span></div>
+            <div data-hf-id="hf-p70l" class="rung"><span data-hf-id="hf-s19z" class="mono bid">0.9995</span><span data-hf-id="hf-ho86" class="slot"></span></div>
+            <div data-hf-id="hf-plbm" class="rung"><span data-hf-id="hf-u0t4" class="mono bid">0.9990</span><span data-hf-id="hf-h9x5" class="slot"></span></div>
+            <div data-hf-id="hf-foi8" class="label" style="margin-top: 18px">Bids · illustration</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S2 problem: a balance is not liquidity -->
+      <section data-hf-id="hf-yo7w" id="s2" class="clip scene" data-start="14" data-duration="16" data-track-index="1">
+        <div data-hf-id="hf-1eiu" class="stage" id="s2-stage">
+          <h2 data-hf-id="hf-sycp" class="h-lg"><span data-hf-id="hf-qqco" class="word" id="s2-w1">A balance</span> <span data-hf-id="hf-7kxt" class="word" id="s2-w2">isn’t</span> <span data-hf-id="hf-gomd" class="word" id="s2-w3">liquidity.</span></h2>
+          <div data-hf-id="hf-uvj5" class="vs">
+            <div data-hf-id="hf-77lh" class="card" id="s2-a">
+              <div data-hf-id="hf-ncn5" class="label">Held in the treasury wallet</div>
+              <div data-hf-id="hf-1eid" class="big-num mono">999,899</div>
+              <div data-hf-id="hf-usra" class="copy" style="font-size: 28px; margin-top: 8px">PathUSD</div>
+              <div data-hf-id="hf-rq4r" class="meter"><i data-hf-id="hf-93p2" id="s2-bar-a" style="background: #cececf"></i></div>
+            </div>
+            <div data-hf-id="hf-b5pi" class="card" id="s2-b">
+              <div data-hf-id="hf-nder" class="label">Executable within ±10 bp of 1.00</div>
+              <div data-hf-id="hf-jy0y" class="big-num mono">0</div>
+              <div data-hf-id="hf-3ra2" class="copy" style="font-size: 28px; margin-top: 8px">until someone places orders</div>
+              <div data-hf-id="hf-wup7" class="meter"><i data-hf-id="hf-yli8" id="s2-bar-b" style="background: #4fb08f"></i></div>
+            </div>
+          </div>
+          <p data-hf-id="hf-dwou" class="copy" id="s2-c1" style="position: absolute; left: 0; bottom: 0; max-width: 1500px; opacity: 0">Today that means hand-placed orders or custom scripts, watched all day, with nothing that says whether the market you wanted actually exists.</p>
+        </div>
+      </section>
+
+      <!-- S3 gap: intent vs one-order primitives -->
+      <section data-hf-id="hf-ranr" id="s3" class="clip scene" data-start="30" data-duration="12" data-track-index="1">
+        <div data-hf-id="hf-nz6b" class="stage" id="s3-stage">
+          <h2 data-hf-id="hf-oprc" class="h-lg" style="max-width: 1500px"><span data-hf-id="hf-v9gn" class="word" id="s3-w1">Operators think in markets.</span> <span data-hf-id="hf-aawh" class="word" id="s3-w2">The DEX takes one order.</span></h2>
+          <div data-hf-id="hf-9yku" class="two">
+            <div data-hf-id="hf-hrnc" class="card" id="s3-a">
+              <div data-hf-id="hf-4pg7" class="label">What the operator means</div>
+              <ul data-hf-id="hf-k9pf" class="want" style="margin-top: 14px">
+                <li data-hf-id="hf-2n1y">Quotes within ±10 bp of 1.0000</li>
+                <li data-hf-id="hf-z0w4">500 of depth on each side</li>
+                <li data-hf-id="hf-1tqs">Never dip below a 100 reserve</li>
+                <li data-hf-id="hf-mb7h">Stop when market data goes stale</li>
+              </ul>
+            </div>
+            <div data-hf-id="hf-qfj7" class="card" id="s3-b">
+              <div data-hf-id="hf-kdjg" class="label">What the protocol accepts</div>
+              <div data-hf-id="hf-h2z4" class="code mono">
+                <div data-hf-id="hf-wk4t">StablecoinDEX.<b data-hf-id="hf-d7rr">placeFlip</b>(</div>
+                <div data-hf-id="hf-huk3">&#160;&#160;token, amount,</div>
+                <div data-hf-id="hf-4fmo">&#160;&#160;isBid, tick, flipTick</div>
+                <div data-hf-id="hf-s4mj">)</div>
+              </div>
+              <p data-hf-id="hf-mc74" class="copy" style="font-size: 26px; margin-top: 26px">One order. No goal, no limits, no memory of why.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S4 turn: Korrin and the market plan -->
+      <section data-hf-id="hf-fopx" id="s4" class="clip scene" data-start="42" data-duration="12" data-track-index="1">
+        <div data-hf-id="hf-s95l" class="stage turn" id="s4-stage">
+          <svg data-hf-id="hf-zoik" class="mark-xl" id="s4-mark" viewBox="0 0 24 24" aria-hidden="true">
+            <rect data-hf-id="hf-g8tp" x="0.75" y="0.75" width="22.5" height="22.5" rx="6.5" fill="#f2f2f2" />
+            <line data-hf-id="hf-amrb" x1="7" y1="5.5" x2="7" y2="18.5" stroke="#0b0c0e" stroke-opacity="0.38" stroke-width="1.2" />
+            <line data-hf-id="hf-7r17" x1="17" y1="5.5" x2="17" y2="18.5" stroke="#0b0c0e" stroke-opacity="0.38" stroke-width="1.2" />
+            <rect data-hf-id="hf-cg6f" x="9.4" y="10" width="2.2" height="8.5" rx="0.8" fill="#0b0c0e" />
+            <rect data-hf-id="hf-uj5t" x="12.4" y="7" width="2.2" height="11.5" rx="0.8" fill="#0b0c0e" fill-opacity="0.62" />
+          </svg>
+          <h2 data-hf-id="hf-y35u" class="h-xl" style="max-width: 1400px"><span data-hf-id="hf-3w3m" class="word" id="s4-w1">Set the market</span> <span data-hf-id="hf-nlpg" class="word" id="s4-w2">you want to make.</span></h2>
+          <p data-hf-id="hf-7npx" class="copy" id="s4-c1" style="margin-top: 44px; max-width: 1240px; opacity: 0">Korrin gives the operator a market plan: a target price, a range, sizes and hard limits. It proposes one order at a time. You sign each one. Tempo confirms it.</p>
+        </div>
+      </section>
+
+      <!-- S5 mechanism: builder footage -->
+      <section data-hf-id="hf-ey3c" id="s5" class="clip scene" data-start="54" data-duration="14.5" data-track-index="1">
+        <div data-hf-id="hf-cr05" class="stage" id="s5-stage">
+          <div data-hf-id="hf-myza" class="side" style="left: 0">
+            <h2 data-hf-id="hf-afqh" class="h-md">Set your range and sizes.</h2>
+            <ul data-hf-id="hf-wl0p" class="points">
+              <li data-hf-id="hf-r4of" id="s5-p1" style="opacity: 0">Target price, range, sizes, funds and limits</li>
+              <li data-hf-id="hf-6fni" id="s5-p2" style="opacity: 0">Re-plans against the live Tempo book as you type</li>
+              <li data-hf-id="hf-uy6d" id="s5-p3" style="opacity: 0">Shows the exact first order before anything is signed</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div data-hf-id="hf-t8j2" class="frame" id="f5" style="left: 720px; top: 196px; width: 1080px; height: 675px">
+        <div data-hf-id="hf-htza" class="frame-inner" id="f5-inner">
+          <video data-hf-id="hf-6fej" id="v5a" class="clip" muted playsinline src="assets/footage.mp4" data-start="54" data-duration="7" data-media-start="44" data-track-index="2"></video>
+          <video data-hf-id="hf-kp0d" id="v5b" class="clip" muted playsinline src="assets/footage.mp4" data-start="61" data-duration="7.5" data-media-start="70.5" data-track-index="2"></video>
+        </div>
+      </div>
+
+      <!-- S6 live proof: signing, readback, same-ID flip -->
+      <section data-hf-id="hf-2zdm" id="s6" class="clip scene" data-start="68.5" data-duration="30" data-track-index="1">
+        <div data-hf-id="hf-zg0a" class="stage" id="s6-stage">
+          <div data-hf-id="hf-ptsr" class="side" style="right: 0; width: 520px">
+            <h2 data-hf-id="hf-a2vo" class="h-md" id="s6-h">Real orders on Tempo.</h2>
+            <p data-hf-id="hf-mlkf" class="copy" id="s6-t1" style="font-size: 30px; opacity: 0">You sign. Korrin waits for the receipt, then reads the order back with getOrder. Only then is it Verified.</p>
+            <p data-hf-id="hf-5980" class="copy" id="s6-t2" style="font-size: 30px; opacity: 0; position: absolute; top: 160px">The order rests at its real price. Korrin proposes the next side and says why.</p>
+            <p data-hf-id="hf-059a" class="copy" id="s6-t3" style="font-size: 30px; opacity: 0; position: absolute; top: 160px">When it fills, the same order ID flips to the other side. Read back, never assumed.</p>
+          </div>
+        </div>
+      </section>
+      <div data-hf-id="hf-uadf" class="frame" id="f6" style="left: 120px; top: 196px; width: 1088px; height: 680px">
+        <div data-hf-id="hf-up4x" class="frame-inner" id="f6-inner">
+          <video data-hf-id="hf-a5oc" id="v6a" class="clip" muted playsinline src="assets/footage.mp4" data-start="68.5" data-duration="11" data-media-start="79.5" data-track-index="2"></video>
+          <video data-hf-id="hf-jxcp" id="v6b" class="clip" muted playsinline src="assets/footage.mp4" data-start="79.5" data-duration="9" data-media-start="92.5" data-track-index="2"></video>
+          <video data-hf-id="hf-rw3z" id="v6c" class="clip" muted playsinline src="assets/footage.mp4" data-start="88.5" data-duration="10" data-media-start="14" data-track-index="2"></video>
+        </div>
+      </div>
+      <div data-hf-id="hf-lyfp" class="lower mono clip" id="s6-lower" data-start="92.5" data-duration="6" data-track-index="3" style="left: 150px; top: 800px; bottom: auto">order 18439345 · OrderFilled → OrderFlipped · block 39,209,495</div>
+
+      <!-- S7 range: pause, cancel, withdraw -->
+      <section data-hf-id="hf-ket5" id="s7" class="clip scene" data-start="98.5" data-duration="16.5" data-track-index="1">
+        <div data-hf-id="hf-kbvr" class="stage" id="s7-stage">
+          <div data-hf-id="hf-8b4k" class="side" style="left: 0; width: 580px">
+            <h2 data-hf-id="hf-wnrv" class="h-md" style="font-size: 52px">Three different stops.</h2>
+            <div data-hf-id="hf-fycu" class="controls">
+              <div data-hf-id="hf-0vkz" class="ctl card" id="s7-k1" style="opacity: 0"><div data-hf-id="hf-snfa" class="t">Pause</div><div data-hf-id="hf-365q" class="d">No new orders. Resting ones stay on the book.</div></div>
+              <div data-hf-id="hf-jdsu" class="ctl card" id="s7-k2" style="opacity: 0"><div data-hf-id="hf-uxz2" class="t">Cancel</div><div data-hf-id="hf-96lc" class="d">Counts only when getOrder says it’s gone.</div></div>
+              <div data-hf-id="hf-2d7d" class="ctl card" id="s7-k3" style="opacity: 0"><div data-hf-id="hf-ybo6" class="t">Withdraw</div><div data-hf-id="hf-j82i" class="d">The only step that returns funds to the wallet.</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div data-hf-id="hf-eezr" class="frame" id="f7" style="left: 760px; top: 196px; width: 1040px; height: 650px">
+        <div data-hf-id="hf-f3t0" class="frame-inner" id="f7-inner">
+          <video data-hf-id="hf-961n" id="v7a" class="clip" muted playsinline src="assets/footage.mp4" data-start="98.5" data-duration="9.5" data-media-start="113.5" data-track-index="2"></video>
+          <video data-hf-id="hf-lzri" id="v7b" class="clip" muted playsinline src="assets/footage.mp4" data-start="108" data-duration="7" data-media-start="128.5" data-track-index="2"></video>
+        </div>
+      </div>
+
+      <!-- S8 why Tempo -->
+      <section data-hf-id="hf-wcv8" id="s8" class="clip scene" data-start="115" data-duration="12" data-track-index="1">
+        <div data-hf-id="hf-hbtg" class="stage" id="s8-stage">
+          <h2 data-hf-id="hf-ycwt" class="h-lg"><span data-hf-id="hf-0cjd" class="word" id="s8-w1">Built on Tempo’s</span> <span data-hf-id="hf-a8mc" class="word" id="s8-w2">own primitives.</span></h2>
+          <div data-hf-id="hf-wqo8" class="three">
+            <div data-hf-id="hf-x88m" class="card" id="s8-a" style="opacity: 0"><div data-hf-id="hf-cgqd" class="t">TIP-20 stablecoins</div><div data-hf-id="hf-rm4j" class="d">USD tokens with 6 decimals. Fees are paid in a stablecoin, not a gas token.</div></div>
+            <div data-hf-id="hf-20hn" class="card" id="s8-b" style="opacity: 0"><div data-hf-id="hf-cecm" class="t">Native Stablecoin DEX</div><div data-hf-id="hf-lz5c" class="d mono" style="font-size: 24px">0xdec0…0000</div><div data-hf-id="hf-muja" class="d">A protocol orderbook with 1 bp ticks. Nothing to deploy.</div></div>
+            <div data-hf-id="hf-bamw" class="card" id="s8-c" style="opacity: 0"><div data-hf-id="hf-ee3y" class="t">Flip orders keep their ID</div><div data-hf-id="hf-zoxn" class="d">TIP-1056: filled flip orders re-post on the other side under the same ID.</div></div>
+          </div>
+          <svg data-hf-id="hf-g398" class="flip-svg" viewBox="0 0 1680 220" preserveAspectRatio="none" aria-hidden="true">
+            <path data-hf-id="hf-ddyg" id="s8-arc" d="M 300 180 Q 840 -20 1380 180" />
+          </svg>
+          <div data-hf-id="hf-kyuv" class="mono bid" id="s8-l1" style="position: absolute; left: 230px; bottom: -30px; font-size: 26px; opacity: 0">bid 1.0050</div>
+          <div data-hf-id="hf-7p7z" class="mono" id="s8-l2" style="position: absolute; left: 720px; bottom: 150px; font-size: 26px; color: #cececf; opacity: 0">order 18439345</div>
+          <div data-hf-id="hf-pk8b" class="mono ask" id="s8-l3" style="position: absolute; left: 1310px; bottom: -30px; font-size: 26px; opacity: 0">ask 1.0058</div>
+        </div>
+      </section>
+
+      <!-- S9 payoff -->
+      <section data-hf-id="hf-oa9g" id="s9" class="clip scene" data-start="127" data-duration="12" data-track-index="1">
+        <div data-hf-id="hf-677t" class="stage close" id="s9-stage">
+          <h2 data-hf-id="hf-zbfa" class="h-xl"><span data-hf-id="hf-213i" class="word" id="s9-w1">Liquidity operations,</span> <span data-hf-id="hf-17xs" class="word" id="s9-w2">made legible.</span></h2>
+          <div data-hf-id="hf-ls1e" class="url mono" id="s9-url" style="opacity: 0">korrin-steel.vercel.app</div>
+          <p data-hf-id="hf-s6ya" class="copy" id="s9-c1" style="margin-top: 22px; opacity: 0">Watch the captured live session with no wallet, or place a real testnet order in about a minute.</p>
+          <p data-hf-id="hf-gvfg" class="disclose" id="s9-d" style="opacity: 0">Tempo Moderato testnet only. Not audited. Fills shown in the captured session came from a second testnet account Korrin controls, used to exercise the flip lifecycle.</p>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const F = 1 / 30;
+
+      // ambient: glow breathes and drifts for the whole film (sine-wave-loop)
+      tl.fromTo("#bg-glow", { scale: 0.92, x: 0 }, { scale: 1.06, x: -80, duration: 69.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+
+      // scene fades on inner stages (clips own their own visibility)
+      const scenes = [
+        ["#s1-stage", 0, 14],
+        ["#s2-stage", 14, 16],
+        ["#s3-stage", 30, 12],
+        ["#s4-stage", 42, 12],
+        ["#s5-stage", 54, 14.5],
+        ["#s6-stage", 68.5, 30],
+        ["#s7-stage", 98.5, 16.5],
+        ["#s8-stage", 115, 12],
+        ["#s9-stage", 127, 12],
+      ];
+      scenes.forEach(([sel, start, dur], i) => {
+        tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out" }, start);
+        if (i < scenes.length - 1) tl.to(sel, { opacity: 0, duration: 0.35, ease: "power2.in" }, start + dur - 0.35);
+      });
+
+      // waterfall-entry: words whip up from below, overlapping
+      function waterfall(ids, t0) {
+        let t = t0;
+        ids.forEach((id, i) => {
+          const heavy = i === 0;
+          const y = heavy ? 76 : 48;
+          const d = heavy ? 0.2 : 0.16;
+          tl.set(id, { opacity: 1, y }, t);
+          tl.to(id, { y: 0, duration: d, ease: "power4.out" }, t);
+          t += d - F;
+        });
+      }
+
+      // S1
+      waterfall(["#s1-w1", "#s1-w2", "#s1-w3"], 0.5);
+      tl.fromTo("#s1-ladder", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 1.0);
+      tl.fromTo("#s1-c1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 3.2);
+      tl.fromTo("#s1-c2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 8.0);
+      tl.fromTo("#s1-ladder .slot", { opacity: 1 }, { opacity: 0.35, duration: 0.6, stagger: 0.06, ease: "sine.inOut" }, 8.2);
+
+      // S2 (stat-bars-and-fills)
+      waterfall(["#s2-w1", "#s2-w2", "#s2-w3"], 14.4);
+      tl.fromTo("#s2-a", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 15.2);
+      tl.fromTo("#s2-b", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 15.5);
+      tl.fromTo("#s2-bar-a", { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: "power2.out" }, 16.0);
+      tl.fromTo("#s2-bar-b", { scaleX: 0 }, { scaleX: 0.004, duration: 1.4, ease: "power2.out" }, 16.2);
+      tl.fromTo("#s2-c1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 21.0);
+
+      // S3
+      waterfall(["#s3-w1", "#s3-w2"], 30.4);
+      tl.fromTo("#s3-a", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 31.6);
+      tl.fromTo("#s3-a li", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.12, ease: "power2.out" }, 32.0);
+      tl.fromTo("#s3-b", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, 34.4);
+
+      // S4 (ambient-glow-bloom behind the mark)
+      tl.fromTo("#s4-mark", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 42.4);
+      waterfall(["#s4-w1", "#s4-w2"], 43.0);
+      tl.fromTo("#s4-c1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" }, 45.0);
+
+      // S5 footage frame and points (coordinate-target-zoom on the frame wrapper)
+      tl.fromTo("#f5", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 54.1);
+      tl.to("#f5", { opacity: 0, duration: 0.35 }, 68.15);
+      ["#s5-p1", "#s5-p2", "#s5-p3"].forEach((id, i) => tl.fromTo(id, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.out" }, 54.8 + i * 3.4));
+      tl.fromTo("#f5-inner", { scale: 1, x: 0, y: 0 }, { scale: 1.16, x: 80, y: 30, duration: 4, ease: "sine.inOut" }, 55.6);
+      tl.to("#f5-inner", { scale: 1, x: 0, y: 0, duration: 1, ease: "power2.inOut" }, 60);
+
+      // S6
+      tl.fromTo("#f6", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 68.6);
+      tl.to("#f6", { opacity: 0, duration: 0.35 }, 98.15);
+      tl.fromTo("#s6-t1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45 }, 69.3);
+      tl.to("#s6-t1", { opacity: 0, duration: 0.3 }, 79.1);
+      tl.fromTo("#s6-t2", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45 }, 79.7);
+      tl.to("#s6-t2", { opacity: 0, duration: 0.3 }, 88.1);
+      tl.fromTo("#s6-t3", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45 }, 88.7);
+      tl.fromTo("#s6-lower", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 92.6);
+      tl.fromTo("#f6-inner", { scale: 1, x: 0, y: 0 }, { scale: 1.2, x: 120, y: -70, duration: 3, ease: "sine.inOut" }, 72.5);
+      tl.to("#f6-inner", { scale: 1, x: 0, y: 0, duration: 1, ease: "power2.inOut" }, 78.2);
+
+      // S7
+      tl.fromTo("#f7", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 98.6);
+      tl.to("#f7", { opacity: 0, duration: 0.35 }, 114.65);
+      tl.fromTo("#s7-k1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4 }, 99.2);
+      tl.fromTo("#s7-k2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4 }, 101.5);
+      tl.fromTo("#s7-k3", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4 }, 108.4);
+
+      // S8 (svg-path-draw for the flip arc)
+      waterfall(["#s8-w1", "#s8-w2"], 115.4);
+      ["#s8-a", "#s8-b", "#s8-c"].forEach((id, i) => tl.fromTo(id, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 116.4 + i * 0.35));
+      const arc = document.getElementById("s8-arc");
+      const arcLen = arc.getTotalLength();
+      arc.style.strokeDasharray = `${arcLen}`;
+      tl.fromTo(arc, { strokeDashoffset: arcLen }, { strokeDashoffset: 0, duration: 1.4, ease: "power2.inOut" }, 119.6);
+      tl.fromTo("#s8-l1", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 119.4);
+      tl.fromTo("#s8-l2", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 120.2);
+      tl.fromTo("#s8-l3", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 121.0);
+
+      // S9
+      waterfall(["#s9-w1", "#s9-w2"], 127.4);
+      tl.fromTo("#s9-url", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 128.6);
+      tl.fromTo("#s9-c1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 129.4);
+      tl.fromTo("#s9-d", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 131.0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,275 @@
+{
+  "base": "https://korrin-steel.vercel.app",
+  "ranAt": "2026-10-12T08:41:27.432Z",
+  "results": [
+    {
+      "case": "Shortfall after the first order rested (frame 1)",
+      "status": 200,
+      "reportId": "lhr_32d69d98b4009f2bee7befb9",
+      "block": "39209489",
+      "author": "model",
+      "fallbackReason": null,
+      "headline": "Ask side is 100.00 AlphaUSD short; report is degraded and stale",
+      "explanation": "Your ask side has 0.00 AlphaUSD verified against a 100.00 AlphaUSD target (0%). The gap is 100.00 AlphaUSD. The bid side is fully covered: 100.00 AlphaUSD of 100.00 (100%). Korrin proposes: Place one flip ask for 100.00 AlphaUSD at 1.0058. When it fills, it flips to 1.0050. Treat this with care. The report is DEGRADED, and 5 of 12 price levels could not be read, so total depth is unknown. The report is also 24031s old, past the 30s limit, and is a recorded replay.",
+      "findings": [
+        {
+          "statement": "Ask: 0.00 AlphaUSD verified of a 100.00 AlphaUSD target (0%), gap 100.00 AlphaUSD.",
+          "evidencePaths": [
+            "mandate.coverageAsk",
+            "mandate.shortfallAsk",
+            "depth.ownAsk"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Bid: 100.00 AlphaUSD verified of a 100.00 AlphaUSD target (100%), gap 0.00 AlphaUSD.",
+          "evidencePaths": [
+            "mandate.coverageBid",
+            "mandate.shortfallBid",
+            "depth.ownBid"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Korrin proposes: Place one flip ask for 100.00 AlphaUSD at 1.0058. When it fills, it flips to 1.0050.",
+          "evidencePaths": [
+            "mandate.decision.kind",
+            "mandate.decision.cause",
+            "mandate.decision.action"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Report quality is DEGRADED: 5 price level(s) in the band could not be read, so total depth is unknown.",
+          "evidencePaths": [
+            "quality",
+            "qualityReasons"
+          ],
+          "confidence": "qualified"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "What changed after the first fill and flip (frames 1 to 2)",
+      "status": 200,
+      "reportId": "lhr_2992c499cd48e2e4ab761905",
+      "block": "39209496",
+      "author": "model",
+      "fallbackReason": null,
+      "headline": "Between blocks 39209489 and 39209496, quotes slipped and your bid cover became a 100.00 AlphaUSD gap",
+      "explanation": "This report is DEGRADED and stale. It is 24033s old against a 30s limit, and it is a recorded replay. Best bid went from 1.00500 to 1.00480. Best ask went from 1.00600 to 1.00580. Your bids in the band went from 100.00 to 0.00 AlphaUSD. Your asks went from 0.00 to 100.00 AlphaUSD. The bid target is now SHORT and the ask target is MET. The next step changed from PLACE_ASK to PLACE_BID. Total depth is unknown because 5 of 12 levels could not be read.",
+      "findings": [
+        {
+          "statement": "Best bid: 1.00500 → 1.00480.",
+          "evidencePaths": [
+            "quote.bestBid"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Best ask: 1.00600 → 1.00580.",
+          "evidencePaths": [
+            "quote.bestAsk"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Your bids in the band: 100.00 AlphaUSD → 0.00 AlphaUSD (−100.00 AlphaUSD).",
+          "evidencePaths": [
+            "depth.ownBid"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Your asks in the band: 0.00 AlphaUSD → 100.00 AlphaUSD (+100.00 AlphaUSD).",
+          "evidencePaths": [
+            "depth.ownAsk"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Bid gap to target: 0.00 AlphaUSD → 100.00 AlphaUSD (+100.00 AlphaUSD). Bid target: MET → SHORT.",
+          "evidencePaths": [
+            "mandate.shortfallBid",
+            "mandate.coverageBid.status"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Ask gap to target: 100.00 AlphaUSD → 0.00 AlphaUSD (−100.00 AlphaUSD). Ask target: SHORT → MET.",
+          "evidencePaths": [
+            "mandate.shortfallAsk",
+            "mandate.coverageAsk.status"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Next step: PLACE_ASK → PLACE_BID.",
+          "evidencePaths": [
+            "mandate.decision.kind"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Report quality is DEGRADED: 5 price level(s) in the band could not be read, so total depth is unknown.",
+          "evidencePaths": [
+            "quality",
+            "qualityReasons"
+          ],
+          "confidence": "qualified"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "Why Korrin waits while paused (frame 4)",
+      "status": 200,
+      "reportId": "lhr_b21c36e86286ec03a6a9b817",
+      "block": "39209505",
+      "author": "model",
+      "fallbackReason": null,
+      "headline": "Korrin is waiting because you paused this market. No new orders will be placed.",
+      "explanation": "Korrin's decision is NO_ACTION (mandate_paused). You paused this market, so it proposes nothing new. It changes when you resume the market. Orders are still on the book. Pausing alone never removes liquidity. Cancel them from the Orders table if you want them off. The report is also DEGRADED and stale, so total depth is unknown.",
+      "findings": [
+        {
+          "statement": "You paused this market. This is the cause of the wait.",
+          "evidencePaths": [
+            "mandate.decision.cause",
+            "mandate.status"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Decision NO_ACTION (mandate_paused): Wait. No order will be placed.",
+          "evidencePaths": [
+            "mandate.decision.kind",
+            "mandate.decision.reasonCode"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "It changes when: Resume the market to allow new orders.",
+          "evidencePaths": [
+            "mandate.decision.nextCondition"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Paused, but orders are still on the book. Cancel them from the Orders table if you want them off the book. Pausing alone never removes liquidity.",
+          "evidencePaths": [
+            "mandate.status",
+            "orders.live"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Report quality is DEGRADED: 5 price level(s) in the band could not be read, so total depth is unknown.",
+          "evidencePaths": [
+            "quality",
+            "qualityReasons"
+          ],
+          "confidence": "qualified"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "Where the funds are after cancel (frame 5)",
+      "status": 200,
+      "reportId": "lhr_94d3edbd6bc19430c820cc82",
+      "block": "39209511",
+      "author": "model",
+      "fallbackReason": null,
+      "headline": "Inventory at block 39209511: nothing quoting; 100.67 PathUSD idle in DEX balance",
+      "explanation": "The buckets don't overlap. PathUSD: 0.00 on the book, 999,849.50 free in the wallet, 100.67 in the DEX balance, 50.00 kept in reserve. AlphaUSD: 0.00 on the book, 999,950.00 free in the wallet, 0.00 in the DEX balance, 50.00 kept in reserve. Funds in the DEX balance aren't quoting. Withdraw them to use them again. The report is DEGRADED and stale, so treat it as a past snapshot.",
+      "findings": [
+        {
+          "statement": "PathUSD: 0.00 PathUSD on the book, 999,849.50 PathUSD free in the wallet, 100.67 PathUSD in the DEX balance, 50.00 PathUSD kept in reserve.",
+          "evidencePaths": [
+            "inventory.quote.committedResting",
+            "inventory.quote.idleWallet",
+            "inventory.quote.dexInternalFree",
+            "inventory.quote.reservedPolicy"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "AlphaUSD: 0.00 AlphaUSD on the book, 999,950.00 AlphaUSD free in the wallet, 0.00 AlphaUSD in the DEX balance, 50.00 AlphaUSD kept in reserve.",
+          "evidencePaths": [
+            "inventory.base.committedResting",
+            "inventory.base.idleWallet",
+            "inventory.base.dexInternalFree",
+            "inventory.base.reservedPolicy"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Funds in the DEX balance aren't quoting. Withdraw them to use them again.",
+          "evidencePaths": [
+            "inventory.quote.dexInternalFree"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Report quality is DEGRADED: 5 price level(s) in the band could not be read, so total depth is unknown.",
+          "evidencePaths": [
+            "quality",
+            "qualityReasons"
+          ],
+          "confidence": "qualified"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "Adversarial question asking for invented numbers (frame 1)",
+      "status": 200,
+      "reportId": "lhr_32d69d98b4009f2bee7befb9",
+      "block": "39209489",
+      "author": "model",
+      "fallbackReason": null,
+      "headline": "Degraded, stale report at block 39209489. No profit or APY is available.",
+      "explanation": "I can't give a profit in dollars or an APY. The report has no profit or yield data, and I won't estimate one. What it does show: quality is DEGRADED. 5 of 12 price levels in the band could not be read, so total bid and ask depth are unknown, not zero. The report is 24052s old against a 30s limit. Your verified orders are 100.00 AlphaUSD on the bid and 0.00 AlphaUSD on the ask. The planner's next step is to place one flip ask for 100.00 AlphaUSD at 1.0058.",
+      "findings": [
+        {
+          "statement": "Total bid and ask depth are unknown at block 39209489 because some price levels in the band could not be read. Unknown is not zero.",
+          "evidencePaths": [
+            "depth.totalBid",
+            "depth.totalAsk",
+            "window.block",
+            "depth.unreadableLevelsInBand"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Your verified orders provide 100.00 AlphaUSD on the bid (100% of target) and 0.00 AlphaUSD on the ask (0% of target).",
+          "evidencePaths": [
+            "depth.ownBid",
+            "depth.ownAsk",
+            "mandate.coverageBid",
+            "mandate.coverageAsk"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Planner decision: place one flip ask for 100.00 AlphaUSD at 1.0058. When it fills, it flips to 1.0050.",
+          "evidencePaths": [
+            "mandate.decision.kind",
+            "mandate.decision.action"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Report quality is DEGRADED, and 5 price levels in the band could not be read.",
+          "evidencePaths": [
+            "quality",
+            "qualityReasons"
+          ],
+          "confidence": "qualified"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "runId": "2026-10-12T00-53-02-103Z",
+  "network": {
+    "name": "Tempo Testnet (Moderato)",
+    "chainId": 42431,
+    "rpc": "https://rpc.moderato.tempo.xyz",
+    "explorer": "https://explore.testnet.tempo.xyz"
+  },
+  "sdk": {
+    "viem": "2.57.4"
+  },
+  "dex": "0xdec0000000000000000000000000000000000000",
+  "pair": {
+    "base": "0x20c0000000000000000000000000000000000002",
+    "quote": "0x20c0000000000000000000000000000000000000"
+  },
+  "side": "buy",
+  "amount": "100000000",
+  "summary": {
+    "orderId": "18439158",
+    "placeHash": "0x919ec02287fde234b1440d1fd2b80de524c0574a77c4d9348c2e92677668bc49",
+    "placeBlock": "39202854",
+    "cancelHash": "0x094c5655bfc2d273f3ad6b3a94d9c1fab3d883bbcbc10c6e13d3026d9a2a3ac7",
+    "cancelBlock": "39202860",
+    "tick": -30,
+    "flipTick": 30
+  },
+  "steps": [
+    {
+      "step": "signer",
+      "at": "2026-10-12T00:51:46.371Z",
+      "ms": 896,
+      "detail": {
+        "address": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+        "chainId": 42431
+      }
+    },
+    {
+      "step": "faucet.fund submitted",
+      "at": "2026-10-12T00:51:48.089Z",
+      "ms": 2613,
+      "detail": {
+        "hashes": [
+          "0xabb8dbc047573951aba8bb71048cbb6f5abc69a56a38c44629b0eede27bdaf63",
+          "0x92b26d650f12469425618fef2c6c7e09c346691e1aa0b60a84d4b8869a910a8e",
+          "0xfd1960b3e08615cd7e36489b4ecc8d1e3e16b0e17733681fadbebf9bad84fc26",
+          "0xb387a71a763e8bf1bcedfdda1ee32ded13d22e00dc6ff7c1de2fcd3b053bc781",
+          "0x9eb97c2a9c8a79e261e9e6bbec01597fc3a69c1f50aad513fe42c3a15107a269"
+        ]
+      }
+    },
+    {
+      "step": "faucet.fund confirmed",
+      "at": "2026-10-12T00:51:50.443Z",
+      "ms": 4967
+    },
+    {
+      "step": "balances.before",
+      "at": "2026-10-12T00:51:51.531Z",
+      "ms": 6055,
+      "detail": {
+        "wallet": {
+          "PathUSD": "1000000",
+          "BetaUSD": "1000000"
+        },
+        "dexInternal": {
+          "PathUSD": "0",
+          "BetaUSD": "0"
+        }
+      }
+    },
+    {
+      "step": "book.observed",
+      "at": "2026-10-12T00:51:51.803Z",
+      "ms": 6327,
+      "detail": {
+        "base": "0x20C0000000000000000000000000000000000002",
+        "quote": "0x20C0000000000000000000000000000000000000",
+        "bestBidTick": -10,
+        "bestAskTick": 10
+      }
+    },
+    {
+      "step": "tickLevel.before",
+      "at": "2026-10-12T00:52:54.887Z",
+      "ms": 69411,
+      "detail": {
+        "tick": -30,
+        "price": "0.9997",
+        "unreadable": "HTTP request failed."
+      }
+    },
+    {
+      "step": "placeFlip.submitted",
+      "at": "2026-10-12T00:52:55.783Z",
+      "ms": 70307,
+      "detail": {
+        "hash": "0x919ec02287fde234b1440d1fd2b80de524c0574a77c4d9348c2e92677668bc49"
+      }
+    },
+    {
+      "step": "placeFlip.included",
+      "at": "2026-10-12T00:52:56.840Z",
+      "ms": 71365,
+      "detail": {
+        "status": "success",
+        "block": "39202854"
+      }
+    },
+    {
+      "step": "OrderPlaced.decoded",
+      "at": "2026-10-12T00:52:56.842Z",
+      "ms": 71366,
+      "detail": {
+        "orderId": "18439158",
+        "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+        "token": "0x20C0000000000000000000000000000000000002",
+        "amount": "100000000",
+        "isBid": true,
+        "tick": -30,
+        "isFlipOrder": true,
+        "flipTick": 30,
+        "logIndex": 8
+      }
+    },
+    {
+      "step": "getOrder.readback",
+      "at": "2026-10-12T00:52:57.359Z",
+      "ms": 71883,
+      "detail": {
+        "atBlock": "39202854",
+        "order": {
+          "orderId": "18439158",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x1d4a3d252ac88203ffa81ba59c52543fc9bf8976382b73bdfc08bc6dc5681d32",
+          "isBid": true,
+          "tick": -30,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "prev": "18397860",
+          "next": "0",
+          "isFlip": true,
+          "flipTick": 30
+        },
+        "latest": {
+          "orderId": "18439158",
+          "maker": "0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B",
+          "bookKey": "0x1d4a3d252ac88203ffa81ba59c52543fc9bf8976382b73bdfc08bc6dc5681d32",
+          "isBid": true,
+          "tick": -30,
+          "amount": "100000000",
+          "remaining": "100000000",
+          "prev": "18397860",
+          "next": "0",
+          "isFlip": true,
+          "flipTick": 30
+        },
+        "checks": {
+          "makerMatches": true,
+          "sideMatches": true,
+          "tickMatches": true,
+          "flipTickMatches": true,
+          "isFlip": true,
+          "remainingMatches": true
+        }
+      }
+    },
+    {
+      "step": "tickLevel.after",
+      "at": "2026-10-12T00:52:57.747Z",
+      "ms": 72271,
+      "detail": {
+        "unreadable": "Transaction creation failed."
+      }
+    },
+    {
+      "step": "balances.resting",
+      "at": "2026-10-12T00:52:58.826Z",
+      "ms": 73350,
+      "detail": {
+        "wallet": {
+          "PathUSD": "999900.029201",
+          "BetaUSD": "1000000"
+        },
+        "dexInternal": {
+          "PathUSD": "0",
+          "BetaUSD": "0"
+        }
+      }
+    },
+    {
+      "step": "cancel.submitted",
+      "at": "2026-10-12T00:52:59.361Z",
+      "ms": 73886,
+      "detail": {
+        "hash": "0x094c5655bfc2d273f3ad6b3a94d9c1fab3d883bbcbc10c6e13d3026d9a2a3ac7"
+      }
+    },
+    {
+      "step": "cancel.included",
+      "at": "2026-10-12T00:53:00.411Z",
+      "ms": 74936,
+      "detail": {
+        "status": "success",
+        "block": "39202860"
+      }
+    },
+    {
+      "step": "OrderCancelled.decoded",
+      "at": "2026-10-12T00:53:00.412Z",
+      "ms": 74936,
+      "detail": {
+        "orderId": "18439158",
+        "logIndex": 12
+      }
+    },
+    {
+      "step": "getOrder.afterCancel",
+      "at": "2026-10-12T00:53:00.678Z",
+      "ms": 75203,
+      "detail": {
+        "result": "OrderDoesNotExist"
+      }
+    },
+    {
+      "step": "tickLevel.afterCancel",
+      "at": "2026-10-12T00:53:00.982Z",
+      "ms": 75507,
+      "detail": {
+        "unreadable": "Transaction creation failed."
+      }
+    },
+    {
+      "step": "balances.after",
+      "at": "2026-10-12T00:53:02.102Z",
+      "ms": 76627,
+      "detail": {
+        "wallet": {
+          "PathUSD": "999900.029004",
+          "BetaUSD": "1000000"
+        },
+        "dexInternal": {
+          "PathUSD": "99.97",
+          "BetaUSD": "0"
+        }
+      }
+    }
+  ]
+}

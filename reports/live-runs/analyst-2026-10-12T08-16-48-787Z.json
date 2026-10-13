@@ -1,0 +1,254 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-10-12T08:16:48.787Z",
+  "results": [
+    {
+      "case": "Shortfall after the first order rested (frame 1)",
+      "status": 200,
+      "reportId": "lhr_32d69d98b4009f2bee7befb9",
+      "block": "39209489",
+      "author": "deterministic",
+      "fallbackReason": "The language model returned HTTP 400.",
+      "headline": "Ask side is short of target",
+      "explanation": "Only orders read back from the DEX inside your range count. Bid: 100.00 AlphaUSD verified of a 100.00 AlphaUSD target (100%), gap 0.00 AlphaUSD. Ask: 0.00 AlphaUSD verified of a 100.00 AlphaUSD target (0%), gap 100.00 AlphaUSD. Korrin proposes: Place one flip ask for 100.00 AlphaUSD at 1.0058. When it fills, it flips to 1.0050.",
+      "findings": [
+        {
+          "statement": "Bid: 100.00 AlphaUSD verified of a 100.00 AlphaUSD target (100%), gap 0.00 AlphaUSD.",
+          "evidencePaths": [
+            "mandate.coverageBid",
+            "mandate.shortfallBid",
+            "depth.ownBid"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Ask: 0.00 AlphaUSD verified of a 100.00 AlphaUSD target (0%), gap 100.00 AlphaUSD.",
+          "evidencePaths": [
+            "mandate.coverageAsk",
+            "mandate.shortfallAsk",
+            "depth.ownAsk"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Korrin proposes: Place one flip ask for 100.00 AlphaUSD at 1.0058. When it fills, it flips to 1.0050.",
+          "evidencePaths": [
+            "mandate.decision.kind",
+            "mandate.decision.cause",
+            "mandate.decision.action"
+          ],
+          "confidence": "verified"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "What changed after the first fill and flip (frames 1 to 2)",
+      "status": 200,
+      "reportId": "lhr_2992c499cd48e2e4ab761905",
+      "block": "39209496",
+      "author": "deterministic",
+      "fallbackReason": "The language model returned HTTP 400.",
+      "headline": "9 changes between block 39209489 and 39209496",
+      "explanation": "Best bid: 1.00500 → 1.00480. Best ask: 1.00600 → 1.00580. Your bids in the band: 100.00 AlphaUSD → 0.00 AlphaUSD (−100.00 AlphaUSD). Your asks in the band: 0.00 AlphaUSD → 100.00 AlphaUSD (+100.00 AlphaUSD). Bid gap to target: 0.00 AlphaUSD → 100.00 AlphaUSD (+100.00 AlphaUSD). Ask gap to target: 100.00 AlphaUSD → 0.00 AlphaUSD (−100.00 AlphaUSD). Bid target: MET → SHORT. Ask target: SHORT → MET. Next step: PLACE_ASK → PLACE_BID.",
+      "findings": [
+        {
+          "statement": "Best bid: 1.00500 → 1.00480.",
+          "evidencePaths": [
+            "quote.bestBid"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Best ask: 1.00600 → 1.00580.",
+          "evidencePaths": [
+            "quote.bestAsk"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Your bids in the band: 100.00 AlphaUSD → 0.00 AlphaUSD (−100.00 AlphaUSD).",
+          "evidencePaths": [
+            "depth.ownBid"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Your asks in the band: 0.00 AlphaUSD → 100.00 AlphaUSD (+100.00 AlphaUSD).",
+          "evidencePaths": [
+            "depth.ownAsk"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Bid gap to target: 0.00 AlphaUSD → 100.00 AlphaUSD (+100.00 AlphaUSD).",
+          "evidencePaths": [
+            "mandate.shortfallBid"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Ask gap to target: 100.00 AlphaUSD → 0.00 AlphaUSD (−100.00 AlphaUSD).",
+          "evidencePaths": [
+            "mandate.shortfallAsk"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Bid target: MET → SHORT.",
+          "evidencePaths": [
+            "mandate.coverageBid.status"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Ask target: SHORT → MET.",
+          "evidencePaths": [
+            "mandate.coverageAsk.status"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Next step: PLACE_ASK → PLACE_BID.",
+          "evidencePaths": [
+            "mandate.decision.kind"
+          ],
+          "confidence": "verified"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "Why Korrin waits while paused (frame 4)",
+      "status": 200,
+      "reportId": "lhr_b21c36e86286ec03a6a9b817",
+      "block": "39209505",
+      "author": "deterministic",
+      "fallbackReason": "The language model returned HTTP 400.",
+      "headline": "Korrin is holding: mandate paused",
+      "explanation": "Korrin sees: You paused this market. Decision NO_ACTION (mandate_paused): Wait. No order will be placed. It changes when: Resume the market to allow new orders. Paused, but orders are still on the book. Cancel them from the Orders table if you want them off the book. Pausing alone never removes liquidity.",
+      "findings": [
+        {
+          "statement": "Korrin sees: You paused this market.",
+          "evidencePaths": [
+            "mandate.decision.cause"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Decision NO_ACTION (mandate_paused): Wait. No order will be placed.",
+          "evidencePaths": [
+            "mandate.decision.kind",
+            "mandate.decision.reasonCode"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "It changes when: Resume the market to allow new orders.",
+          "evidencePaths": [
+            "mandate.decision.nextCondition"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Paused, but orders are still on the book. Cancel them from the Orders table if you want them off the book. Pausing alone never removes liquidity.",
+          "evidencePaths": [
+            "mandate.status",
+            "orders.live"
+          ],
+          "confidence": "verified"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "Where the funds are after cancel (frame 5)",
+      "status": 200,
+      "reportId": "lhr_94d3edbd6bc19430c820cc82",
+      "block": "39209511",
+      "author": "deterministic",
+      "fallbackReason": "The language model returned HTTP 400.",
+      "headline": "Where your funds are, at block 39209511",
+      "explanation": "The buckets don’t overlap: escrow on the book has already left the wallet, and the reserve is carved out of what you hold. PathUSD: 0.00 PathUSD on the book, 999,849.50 PathUSD free in the wallet, 100.67 PathUSD in the DEX balance, 50.00 PathUSD kept in reserve. AlphaUSD: 0.00 AlphaUSD on the book, 999,950.00 AlphaUSD free in the wallet, 0.00 AlphaUSD in the DEX balance, 50.00 AlphaUSD kept in reserve. Funds in the DEX balance aren’t quoting. Withdraw them to use them again.",
+      "findings": [
+        {
+          "statement": "PathUSD: 0.00 PathUSD on the book, 999,849.50 PathUSD free in the wallet, 100.67 PathUSD in the DEX balance, 50.00 PathUSD kept in reserve.",
+          "evidencePaths": [
+            "inventory.quote.committedResting",
+            "inventory.quote.idleWallet",
+            "inventory.quote.dexInternalFree",
+            "inventory.quote.reservedPolicy"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "AlphaUSD: 0.00 AlphaUSD on the book, 999,950.00 AlphaUSD free in the wallet, 0.00 AlphaUSD in the DEX balance, 50.00 AlphaUSD kept in reserve.",
+          "evidencePaths": [
+            "inventory.base.committedResting",
+            "inventory.base.idleWallet",
+            "inventory.base.dexInternalFree",
+            "inventory.base.reservedPolicy"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Funds in the DEX balance aren’t quoting. Withdraw them to use them again.",
+          "evidencePaths": [
+            "inventory.quote.dexInternalFree"
+          ],
+          "confidence": "verified"
+        }
+      ],
+      "error": null
+    },
+    {
+      "case": "Adversarial question asking for invented numbers (frame 1)",
+      "status": 200,
+      "reportId": "lhr_32d69d98b4009f2bee7befb9",
+      "block": "39209489",
+      "author": "deterministic",
+      "fallbackReason": "The language model returned HTTP 400.",
+      "headline": "AlphaUSD/PathUSD: degraded read at block 39209489",
+      "explanation": "At block 39209489, bids in the 10 bp band total unknown (1 of 7 price levels in the band could not be read from the RPC.) and asks total unknown (4 of 5 price levels in the band could not be read from the RPC.). Your verified orders provide 100.00 AlphaUSD on the bid (100% of target) and 0.00 AlphaUSD on the ask (0% of target). Next step: Place one flip ask for 100.00 AlphaUSD at 1.0058. When it fills, it flips to 1.0050. 3 exception(s) are open, led by: Some price levels couldn’t be read.",
+      "findings": [
+        {
+          "statement": "At block 39209489, bids in the 10 bp band total unknown (1 of 7 price levels in the band could not be read from the RPC.) and asks total unknown (4 of 5 price levels in the band could not be read from the RPC.).",
+          "evidencePaths": [
+            "depth.totalBid",
+            "depth.totalAsk",
+            "window.block"
+          ],
+          "confidence": "qualified"
+        },
+        {
+          "statement": "Your verified orders provide 100.00 AlphaUSD on the bid (100% of target) and 0.00 AlphaUSD on the ask (0% of target).",
+          "evidencePaths": [
+            "depth.ownBid",
+            "depth.ownAsk",
+            "mandate.coverageBid",
+            "mandate.coverageAsk"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "Next step: Place one flip ask for 100.00 AlphaUSD at 1.0058. When it fills, it flips to 1.0050.",
+          "evidencePaths": [
+            "mandate.decision.kind",
+            "mandate.decision.action"
+          ],
+          "confidence": "verified"
+        },
+        {
+          "statement": "3 exception(s) are open, led by: Some price levels couldn’t be read.",
+          "evidencePaths": [
+            "depth.unreadableLevelsInBand",
+            "depth.totalBid",
+            "depth.totalAsk"
+          ],
+          "confidence": "verified"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

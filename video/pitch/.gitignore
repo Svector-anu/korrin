@@ -1,0 +1,7 @@
+assets/*.mp4
+renders/
+.hyperframes/
+snapshots/
+AGENTS.md
+CLAUDE.md
+.thumbnails/

@@ -1,0 +1,329 @@
+{
+  "generatedAt": "2026-10-12T01:10:59.880Z",
+  "sources": [
+    {
+      "chainId": 42431,
+      "name": "Tempo Testnet (Moderato)",
+      "version": "1.0.8",
+      "timestamp": "2026-09-30T15:16:07.599Z",
+      "url": "https://tokenlist.tempo.xyz/list/42431"
+    },
+    {
+      "chainId": 4217,
+      "name": "Tempo Mainnet",
+      "version": "1.0.36",
+      "timestamp": "2026-09-29T16:17:00.066Z",
+      "url": "https://tokenlist.tempo.xyz/list/4217"
+    }
+  ],
+  "tokens": {
+    "42431:0x20c0000000000000000000000000000000000000": {
+      "chainId": 42431,
+      "name": "PathUSD",
+      "symbol": "pathUSD",
+      "decimals": 6,
+      "icon": "/tokens/42431/0x20c0000000000000000000000000000000000000.svg"
+    },
+    "42431:0x20c0000000000000000000000000000000000001": {
+      "chainId": 42431,
+      "name": "AlphaUSD",
+      "symbol": "alphaUSD",
+      "decimals": 6,
+      "icon": "/tokens/42431/0x20c0000000000000000000000000000000000001.svg"
+    },
+    "42431:0x20c0000000000000000000000000000000000002": {
+      "chainId": 42431,
+      "name": "BetaUSD",
+      "symbol": "betaUSD",
+      "decimals": 6,
+      "icon": "/tokens/42431/0x20c0000000000000000000000000000000000002.svg"
+    },
+    "42431:0x20c0000000000000000000000000000000000003": {
+      "chainId": 42431,
+      "name": "ThetaUSD",
+      "symbol": "thetaUSD",
+      "decimals": 6,
+      "icon": "/tokens/42431/0x20c0000000000000000000000000000000000003.svg"
+    },
+    "42431:0x20c0000000000000000000009e8d7eb59b783726": {
+      "chainId": 42431,
+      "name": "Bridged USDC (Stargate)",
+      "symbol": "USDC.e",
+      "decimals": 6,
+      "icon": "/tokens/42431/0x20c0000000000000000000009e8d7eb59b783726.svg"
+    },
+    "42431:0x20c000000000000000000000d72572838bbee59c": {
+      "chainId": 42431,
+      "name": "Bridged EURC (Stargate)",
+      "symbol": "EURC.e",
+      "decimals": 6,
+      "icon": "/tokens/42431/0x20c000000000000000000000d72572838bbee59c.svg"
+    },
+    "42431:0x20c000000000000000000000f37de3740adec032": {
+      "chainId": 42431,
+      "name": "MACH",
+      "symbol": "MACH",
+      "decimals": 6,
+      "icon": "/tokens/42431/0x20c000000000000000000000f37de3740adec032.svg"
+    },
+    "42431:0x20c0000000000000000000006a37da5c996874be": {
+      "chainId": 42431,
+      "name": "OpenUSD",
+      "symbol": "OUSD",
+      "decimals": 6,
+      "icon": "/tokens/42431/0x20c0000000000000000000006a37da5c996874be.svg"
+    },
+    "4217:0x20c0000000000000000000000000000000000000": {
+      "chainId": 4217,
+      "name": "PathUSD",
+      "symbol": "pathUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000000000000000000000.svg"
+    },
+    "4217:0x20c000000000000000000000b9537d11c60e8b50": {
+      "chainId": 4217,
+      "name": "Bridged USDC (Stargate)",
+      "symbol": "USDC.e",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000b9537d11c60e8b50.svg"
+    },
+    "4217:0x20c0000000000000000000001621e21f71cf12fb": {
+      "chainId": 4217,
+      "name": "Bridged EURC (Stargate)",
+      "symbol": "EURC.e",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000001621e21f71cf12fb.svg"
+    },
+    "4217:0x20c00000000000000000000014f22ca97301eb73": {
+      "chainId": 4217,
+      "name": "USDT0",
+      "symbol": "USDT0",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c00000000000000000000014f22ca97301eb73.svg"
+    },
+    "4217:0x20c0000000000000000000003554d28269e0f3c2": {
+      "chainId": 4217,
+      "name": "Frax USD",
+      "symbol": "frxUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000003554d28269e0f3c2.svg"
+    },
+    "4217:0x20c0000000000000000000000520792dcccccccc": {
+      "chainId": 4217,
+      "name": "Cap USD",
+      "symbol": "cUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000000520792dcccccccc.svg"
+    },
+    "4217:0x20c0000000000000000000008ee4fcff88888888": {
+      "chainId": 4217,
+      "name": "Staked Cap USD",
+      "symbol": "stcUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000008ee4fcff88888888.svg"
+    },
+    "4217:0x20c0000000000000000000005c0bac7cef389a11": {
+      "chainId": 4217,
+      "name": "Generic USD",
+      "symbol": "GUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000005c0bac7cef389a11.svg"
+    },
+    "4217:0x20c0000000000000000000007f7ba549dd0251b9": {
+      "chainId": 4217,
+      "name": "Reservoir Stablecoin",
+      "symbol": "rUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000007f7ba549dd0251b9.svg"
+    },
+    "4217:0x20c000000000000000000000aeed2ec36a54d0e5": {
+      "chainId": 4217,
+      "name": "Wrapped Savings rUSD",
+      "symbol": "wsrUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000aeed2ec36a54d0e5.svg"
+    },
+    "4217:0x20c0000000000000000000009a4a4b17e0dc6651": {
+      "chainId": 4217,
+      "name": "AllUnity EUR",
+      "symbol": "EURAU",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000009a4a4b17e0dc6651.svg"
+    },
+    "4217:0x20c000000000000000000000383a23bacb546ab9": {
+      "chainId": 4217,
+      "name": "Re Protocol reUSD",
+      "symbol": "reUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000383a23bacb546ab9.svg"
+    },
+    "4217:0x20c000000000000000000000ab02d39df30bd17e": {
+      "chainId": 4217,
+      "name": "InfiniFi USD",
+      "symbol": "iUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000ab02d39df30bd17e.svg"
+    },
+    "4217:0x20c000000000000000000000048c8f36df1c9a4a": {
+      "chainId": 4217,
+      "name": "InfiniFi Staked USD",
+      "symbol": "siUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000048c8f36df1c9a4a.svg"
+    },
+    "4217:0x20c0000000000000000000002f52d5cc21a3207b": {
+      "chainId": 4217,
+      "name": "USDe",
+      "symbol": "USDe",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000002f52d5cc21a3207b.svg"
+    },
+    "4217:0x20c000000000000000000000bd95bfb69fbe6ce3": {
+      "chainId": 4217,
+      "name": "Staked USDe",
+      "symbol": "sUSDe",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000bd95bfb69fbe6ce3.svg"
+    },
+    "4217:0x20c000000000000000000000ae247a1130450f09": {
+      "chainId": 4217,
+      "name": "Stable Coin",
+      "symbol": "SBC",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000ae247a1130450f09.svg"
+    },
+    "4217:0x20c0000000000000000000008191667423f70e67": {
+      "chainId": 4217,
+      "name": "Syrup USDC",
+      "symbol": "syrupUSDC",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000008191667423f70e67.svg"
+    },
+    "4217:0x20c000000000000000000000c412ec89d0c08be5": {
+      "chainId": 4217,
+      "name": "Coinbase Wrapped BTC",
+      "symbol": "cbBTC",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000c412ec89d0c08be5.svg"
+    },
+    "4217:0x20c0000000000000000000003158081efd85bfc2": {
+      "chainId": 4217,
+      "name": "USDBridge",
+      "symbol": "USDB",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000003158081efd85bfc2.svg"
+    },
+    "4217:0x20c000000000000000000000111111111e910f0f": {
+      "chainId": 4217,
+      "name": "USD1",
+      "symbol": "USD1",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000111111111e910f0f.svg"
+    },
+    "4217:0x20c0000000000000000000006fd9a167923ba194": {
+      "chainId": 4217,
+      "name": "Deel USD",
+      "symbol": "DLUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000006fd9a167923ba194.png"
+    },
+    "4217:0x20c00000000000000000000042109aef2f8b28e1": {
+      "chainId": 4217,
+      "name": "AllUnity CHF",
+      "symbol": "CHFAU",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c00000000000000000000042109aef2f8b28e1.png"
+    },
+    "4217:0x20c000000000000000000000f047dd7018e50367": {
+      "chainId": 4217,
+      "name": "BRLA Token",
+      "symbol": "BRLA",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000f047dd7018e50367.png"
+    },
+    "4217:0x20c0000000000000000000000a6da882d075a4c3": {
+      "chainId": 4217,
+      "name": "Agant GBP",
+      "symbol": "GBPA",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000000a6da882d075a4c3.svg"
+    },
+    "4217:0x20c0000000000000000000006d194f9810e6f886": {
+      "chainId": 4217,
+      "name": "goUSD",
+      "symbol": "goUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000006d194f9810e6f886.svg"
+    },
+    "4217:0x20c0000000000000000000002e2829d90e7da7fa": {
+      "chainId": 4217,
+      "name": "AllUnity SEK",
+      "symbol": "SEKAU",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000002e2829d90e7da7fa.svg"
+    },
+    "4217:0x20c000000000000000000000d65b4808c85dbb81": {
+      "chainId": 4217,
+      "name": "CAD Digital",
+      "symbol": "CADD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000d65b4808c85dbb81.svg"
+    },
+    "4217:0x20c00000000000000000000030fdd4a919e93fcf": {
+      "chainId": 4217,
+      "name": "Hastra wYLDS",
+      "symbol": "wYLDS",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c00000000000000000000030fdd4a919e93fcf.svg"
+    },
+    "4217:0x20c00000000000000000000058d0b8b2cfdb358c": {
+      "chainId": 4217,
+      "name": "Hastra PRIME",
+      "symbol": "PRIME",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c00000000000000000000058d0b8b2cfdb358c.svg"
+    },
+    "4217:0x20c000000000000000000000d479b9f6ec0ceff9": {
+      "chainId": 4217,
+      "name": "Ondo U.S. Dollar Yield",
+      "symbol": "USDY",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000d479b9f6ec0ceff9.svg"
+    },
+    "4217:0x20c000000000000000000000f37de3740adec032": {
+      "chainId": 4217,
+      "name": "MACH",
+      "symbol": "MACH",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c000000000000000000000f37de3740adec032.svg"
+    },
+    "4217:0x20c000000000000000000000baac91f6ca72f768": {
+      "chainId": 4217,
+      "name": "Sentora pathUSD (Earn)",
+      "symbol": "senpathUSDE",
+      "decimals": 6,
+      "icon": null
+    },
+    "4217:0x20c0000000000000000000003337951a5a9d94b2": {
+      "chainId": 4217,
+      "name": "YLDS",
+      "symbol": "YLDS",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000003337951a5a9d94b2.svg"
+    },
+    "4217:0x20c0000000000000000000006a37da5c996874be": {
+      "chainId": 4217,
+      "name": "OpenUSD",
+      "symbol": "OUSD",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000006a37da5c996874be.svg"
+    },
+    "4217:0x20c0000000000000000000009bf0d22be57c9f67": {
+      "chainId": 4217,
+      "name": "Brazilian Digital Token",
+      "symbol": "BRZ",
+      "decimals": 6,
+      "icon": "/tokens/4217/0x20c0000000000000000000009bf0d22be57c9f67.svg"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+import { getMarketSnapshot, listMarkets, getOrders, getBalances, getOrderEvents } from '../src/lib/tempo/reads'
+const t = performance.now()
+const m = await listMarkets()
+console.log('markets', m.markets.length, 'scanned', m.scanned, 'skipped', m.skipped, Math.round(performance.now() - t), 'ms')
+for (const x of m.markets.slice(0, 6)) console.log(' ', x.index, x.base.symbol, '/', x.quote.symbol, x.bestBidTick, x.bestAskTick, x.canonical)
+const t2 = performance.now()
+const s = await getMarketSnapshot('0x20c0000000000000000000000000000000000001', null, { from: 400, to: 700 })
+console.log('snapshot', Math.round(performance.now() - t2), 'ms', s.bestBidTick, s.bestAskTick, s.levels.map((l) => `${l.isBid ? 'B' : 'A'}${l.tick}:${l.status === 'ok' ? Number(l.liquidity) / 1e6 : l.error}`).join(' '))
+console.log(s.quotes.map((q) => `${q.side} ${Number(q.amountIn) / 1e6} -> ${q.amountOut === null ? q.error : Number(q.amountOut) / 1e6}`).join('\n'))
+console.log(await getOrders([18439167n, 18439158n, 1n]))
+console.log(await getBalances('0x5C4d371C64FC0D6f82d6E7d19597ddd23a91267B', ['0x20c0000000000000000000000000000000000000', '0x20c0000000000000000000000000000000000001']))
+const ev = await getOrderEvents(18439167n, 39203179n)
+console.log(ev.events.map((e) => `${e.event}@${e.blockNumber}#${e.logIndex}`).join(' '))
